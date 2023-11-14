@@ -1,5 +1,4 @@
 ﻿namespace EksamensProjekt2023.Models;
-
 /// <summary>
 /// Date Created: 2023-11-14 <br />
 /// Author: Gabriel H. Kierkegaard
