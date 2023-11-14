@@ -6,9 +6,9 @@
 public class Message
 {
     private DateTime date;
-    private string? sender;
-    private string? reciever;
-    private int messageSize;
+    private string sender;
+    private string reciever;
+    private readonly int messageSize;
     private bool isRead;
 
     public Message(string sender, string reciever)
@@ -20,27 +20,21 @@ public class Message
         isRead = false;
     }
 
-    public DateTime Date
-    {
-        get { return date; }
-    }
+    public DateTime Date => date;
 
-    public string? Sender
+    public string Sender
     {
         get { return sender; }
         set { sender = value; }
     }
 
-    public string? Reciever
+    public string Reciever
     {
         get { return reciever; }
         set { reciever = value; }
     }
 
-    public int MessageSize
-    {
-        get { return messageSize; }
-    }
+    public int MessageSize => messageSize;
 
     public bool IsRead
     {
