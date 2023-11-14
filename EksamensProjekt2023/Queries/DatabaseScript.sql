@@ -26,7 +26,7 @@ CREATE TABLE Users (
 
 CREATE TABLE Sale (
     SaleID int PRIMARY KEY,
-    Username NVARCHAR(25),
+    Assignee NVARCHAR(25),
     DateGiven DATETIME,
     DateSold DATETIME,
     AssignedAmout INT,
@@ -37,7 +37,7 @@ CREATE TABLE Sale (
 CREATE TABLE Groups (
     GroupID INT PRIMARY KEY,
     GroupName NVARCHAR(15),
-    Username NVARCHAR(25),
+    Member NVARCHAR(25),
 )
 
 CREATE TABLE MessageLog (
@@ -48,5 +48,24 @@ CREATE TABLE MessageLog (
     MessageText NVARCHAR(255),
     IsRead BIT,
 )
+
+ALTER TABLE Sale
+    ADD CONSTRAINT FK_Assignee_Username
+    FOREIGN KEY (Assignee) REFERENCES Users(Username)
+
+ALTER TABLE Groups
+    ADD CONSTRAINT FK_Member_Username
+    FOREIGN KEY (Member) REFERENCES Users(Username)
+
+ALTER TABLE MessageLog
+    ADD CONSTRAINT FK_Sender_Username
+    FOREIGN KEY (Sender) REFERENCES Users(Username)
+
+ALTER TABLE MessageLog
+    ADD CONSTRAINT FK_Reciever_Username
+    FOREIGN KEY (RECIEVER) REFERENCES Users(Username)
+
+
+INSERT INTO Users (Username, FirstName, LastName, UserPassword, Email, PhoneNumber, IsAdmin, IsLeader, IsApproved) VALUES ('Tastan', 'Tastan', 'Tastan', 'EverybodyKnowsThePassword', 'Tastan@Tastan.dk', 88888888, 1, 0, 1)
 
 USE MASTER
