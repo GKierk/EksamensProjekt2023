@@ -3,7 +3,7 @@
 /// Date Created: 2023-11-14 <br />
 /// Author: Muhammed Tastan <br />
 /// Date Edited: 2023-11-14 <br />
-/// Co-Author: 2023-11-14 <br />
+/// Co-Author: Gabriel H. Kierkegaard <br />
 /// <br />
 /// 
 /// A simple user model.
