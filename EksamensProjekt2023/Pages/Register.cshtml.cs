@@ -6,10 +6,15 @@ namespace EksamensProjekt2023.Pages
 {
     public class RegisterModel : PageModel
     {
-        public User UserProfile { get; set; }
+        [BindProperty]
+        public User User { get; set; }
         public void OnGet()
         {
-            //UserProfile = new User();
+
+        }
+        public IActionResult OnPost() 
+        {
+            return RedirectToPage("/Index");
         }
     }
 }
