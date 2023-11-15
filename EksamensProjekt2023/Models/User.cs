@@ -3,44 +3,26 @@
 /// Date Created: 2023-11-14 <br />
 /// Author: Muhammed Tastan <br />
 /// Date Edited: 2023-11-14 <br />
-/// Co-Author: 2023-11-14 <br />
+/// Co-Author: Gabriel H. Kierkegaard <br />
 /// <br />
 /// 
 /// A simple user model.
 /// </summary>
 public class User
 {
-    private string username;
-    private string password;
-    private string firstName;
-    private string lastName;
-    private string email;
-    private int phoneNumber;
-    private bool isAdmin;
-    private bool isLeader;
-    private bool isApproved;
+    public int UserID { get; set; }
+    public string? Username { get; set; }
+    public string? Password { get; set; }
+    public string? FirstName { get; set; }
+    public string? LastName { get; set; }
+    public string? Email { get; set; }
+    public int PhoneNumber { get; set; }
+    public bool IsAdmin { get; set; }
+    public bool IsLeader { get; set; }
+    public bool IsApproved { get; set; }
 
-    public User(string username, string password, string firstName, string lastName, string email, int phoneNumber)
-    {
-        this.username = username;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        isAdmin = false;
-        isLeader = false;
-        isApproved = false;
-    }
 
-    public string Username => username;
-    public string Password => password;
-    public string FirstName => firstName;
-    public string LastName => lastName;
-    public string Email => email;
-    public int PhoneNumber => phoneNumber;
-
-    public void SetAdmin() => isAdmin = true;
-    public void SetLeader() => isLeader = true;
-    public void SetApproved() => isApproved = true;
+    public void SetAdmin() => IsAdmin = true;
+    public void SetLeader() => IsLeader = true;
+    public void SetApproved() => IsApproved = true;
 }
