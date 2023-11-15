@@ -8,22 +8,18 @@
 /// </summary>
 public class Group
 {
-    private string groupName;
-    private List<User> members;
-    private User? groupLeader;
-
-    public Group(string groupName)
+    public Group()
     {
-        this.groupName = groupName;
-        members = new List<User>();
+        Members = new List<User>();
     }
 
-    public string GroupName => groupName;
-    public List<User> Members => members;
-    public User? GroupLeader => groupLeader;
+    public int GroupID { get; set; }
+    public string? GroupName { get; set; }
+    public List<User> Members { get; set; }
+    public User? GroupLeader { get; set; }
 
-    public void AssignMember(User user) => members.Add(user);
-    public void RemoveMember(User user) => members.Remove(user);
-    public void AssignLeader(User user) => groupLeader = user;
-    public void RemoveLeader() => groupLeader = null;
+    public void AssignMember(User user) => Members.Add(user);
+    public void RemoveMember(User user) => Members.Remove(user);
+    public void AssignLeader(User user) => GroupLeader = user;
+    public void RemoveLeader() => GroupLeader = null;
 }
