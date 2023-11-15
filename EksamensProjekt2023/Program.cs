@@ -1,4 +1,6 @@
-using EksamensProjekt2023.Services;
+using EksamensProjekt2023.Models;
+using EksamensProjekt2023.Services.EFService;
+using EksamensProjekt2023.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<TastanDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddTransient<IUserService, EFUserService>();
 
 var app = builder.Build();
 
