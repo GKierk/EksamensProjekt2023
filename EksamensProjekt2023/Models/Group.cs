@@ -16,10 +16,21 @@ public class Group
     public int GroupID { get; set; }
     public string? GroupName { get; set; }
     public List<User> Members { get; set; }
+    public int? GroupLeaderID {  get; set; }
     public User? GroupLeader { get; set; }
 
     public void AssignMember(User user) => Members.Add(user);
     public void RemoveMember(User user) => Members.Remove(user);
-    public void AssignLeader(User user) => GroupLeader = user;
-    public void RemoveLeader() => GroupLeader = null;
+
+    public void AssignLeader(User user)
+    {
+        GroupLeaderID = user.UserID;
+        GroupLeader = user;
+    }
+
+    public void RemoveLeader()
+    {
+        GroupLeaderID = null;
+        GroupLeader = null;
+    }
 }
