@@ -9,7 +9,9 @@ namespace EksamensProjekt2023.Pages
         public User UserProfile { get; set; }
         public void OnGet()
         {
-            UserProfile = new User();
+            
+            
+           
         }
     }
 }
