@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EksamensProjekt2023.Migrations
 {
     [DbContext(typeof(TastanDBContext))]
-    [Migration("20231115104220_Migration2")]
-    partial class Migration2
+    [Migration("20231115210811_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
