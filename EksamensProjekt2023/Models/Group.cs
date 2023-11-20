@@ -1,4 +1,7 @@
-﻿namespace EksamensProjekt2023.Models;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace EksamensProjekt2023.Models;
 /// <summary>
 /// Date Created: 2023-11-14 <br />
 /// Author: Gabriel H. Kierkegaard <br />
@@ -10,27 +13,23 @@ public class Group
 {
     public Group()
     {
+        GroupID = Guid.NewGuid().ToString();
         Members = new List<User>();
+        GroupName = string.Empty;
     }
 
-    public int GroupID { get; set; }
-    public string? GroupName { get; set; }
+    public Group(string groupName, User groupLeader)
+    {
+        GroupID = Guid.NewGuid().ToString();
+        Members = new List<User>();
+        GroupName = groupName;
+        GroupLeader = groupLeader;
+    }
+
+    [Key]
+    public string GroupID { get; set; }
+    public string GroupName { get; set; }
     public List<User> Members { get; set; }
-    public int? GroupLeaderID {  get; set; }
-    public User? GroupLeader { get; set; }
-
-    public void AssignMember(User user) => Members.Add(user);
-    public void RemoveMember(User user) => Members.Remove(user);
-
-    public void AssignLeader(User user)
-    {
-        GroupLeaderID = user.UserID;
-        GroupLeader = user;
-    }
-
-    public void RemoveLeader()
-    {
-        GroupLeaderID = null;
-        GroupLeader = null;
-    }
+    [ForeignKey("UserID")]
+    public virtual User? GroupLeader { get; set; }
 }
