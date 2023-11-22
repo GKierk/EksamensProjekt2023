@@ -8,7 +8,7 @@ namespace EksamensProjekt2023.Services.EFService;
 /// </summary>
 public class EFUserService : IUserService
 {
-    private List<User>? users;
+    private List<UserProfile>? UserProfiles;
     private TastanDBContext dBContext;
 
     public EFUserService(TastanDBContext context)
@@ -16,8 +16,8 @@ public class EFUserService : IUserService
         dBContext = context;
     }
 
-    public IEnumerable<User> GetUsers()
+    public IEnumerable<UserProfile> GetUsers()
     {
-        return dBContext.Users.ToList();
+        return dBContext.UserProfiles.ToList();
     }
 }
