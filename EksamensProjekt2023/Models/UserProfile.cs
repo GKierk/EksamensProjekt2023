@@ -12,6 +12,6 @@ namespace EksamensProjekt2023.Models;
 /// 
 /// A simple user model.
 /// </summary>
-public class User : IdentityUser
+public class UserProfile : IdentityUser
 {
 }
