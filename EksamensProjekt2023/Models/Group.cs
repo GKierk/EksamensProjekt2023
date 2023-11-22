@@ -14,14 +14,14 @@ public class Group
     public Group()
     {
         GroupID = Guid.NewGuid().ToString();
-        Members = new List<User>();
+        Members = new List<UserProfile>();
         GroupName = string.Empty;
     }
 
-    public Group(string groupName, User groupLeader)
+    public Group(string groupName, UserProfile groupLeader)
     {
         GroupID = Guid.NewGuid().ToString();
-        Members = new List<User>();
+        Members = new List<UserProfile>();
         GroupName = groupName;
         GroupLeader = groupLeader;
     }
@@ -29,7 +29,7 @@ public class Group
     [Key]
     public string GroupID { get; set; }
     public string GroupName { get; set; }
-    public List<User> Members { get; set; }
+    public List<UserProfile> Members { get; set; }
     [ForeignKey("UserID")]
-    public virtual User? GroupLeader { get; set; }
+    public virtual UserProfile? GroupLeader { get; set; }
 }
