@@ -3,14 +3,57 @@
     display: grid;
     grid-template-rows: 10% 90%;
     grid-template-areas: "side main";
+    padding: 5px;
 }
+/* #region Side */
 .adminPanelSide {
+    margin-right: 50px;
     grid-area: "side";
-    margin-right: 25px;
     height: 100vh;
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
     background-color: #79BCB8;
 }
+
+.userImg {
+    height: 75px;
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 50px;
+    border-radius: 500px;
+    
+}
+
+.adminPanelSide_LinkContainer {
+    list-style-type: none;
+    font-size: 28px;
+    font-family: var(--fontHeader);
+}
+.adminPanelSide_LinkItem {
+    padding: 15px;
+    transition: all ease-in-out 250ms;
+}
+.adminPanelSide_LinkItem:hover {
+    font-size: 32px;
+}
+.adminPanelSide_LinkItem:hover a {
+    color: white;
+    transition: color ease-in-out 250ms;
+}
+
+.adminPanelSide_LinkItem a {
+    text-decoration: none;
+    color: black;
+}
+
+/* #endregion  */
 
 .adminPanelMain {
     grid-area: "main";
 }
+
