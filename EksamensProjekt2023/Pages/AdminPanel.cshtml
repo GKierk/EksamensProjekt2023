@@ -3,7 +3,8 @@
 @{
     ViewData["Title"] = "Administrator Dashboard";
 }
-@*side Panel with "logged in" account - links to other pages*@
+
+
 <div class="adminPanelSide">
     <div class="adminPanelSide_User">
         <img src="https://picsum.photos/150/150?grayscale" alt="placeholder for logged in account">
@@ -45,7 +46,7 @@
         <h3 class="adminPanelMain_groupsHeader">Active Groups</h3>
         <div class="adminPanelMain_groups-btnContainer">
             <button class="groupsBtn">See All Groups</button>
-            <button calss="groupsBtn">Order Groups By Sales</button>
+            <button class="groupsBtn">Order Groups By Sales</button>
             <button class="groupsBtn">Create New Group</button>
             <button class="groupsBtn">Update a Group</button>
             <button class="groupsBtn">Delete a Group</button>
@@ -56,6 +57,23 @@
             <li class="groupsListItem">group 3 &middot; City 3 &middot; #5 on sales</li>
             <li class="groupsListItem">group 4 &middot; City 4 &middot; #1 on sales</li>
             <li class="groupsListItem">group 5 &middot; City 5 &middot; #3 on sales</li>
+        </ul>
+    </div>
+    <div class="adminPanelMain_leaderContainer">
+        <h3 class="adminPanelMain_leaderHeader">Active Leaders</h3>
+        <div class="adminPanelMain__leader-btnContainer">
+            <button class="leaderBtn">See All Leaders</button>
+            <button class="leaderBtn">Order Leaders by Group number</button>
+            <button class="leaderBtn">Create New Leader</button>
+            <button class="leaderBtn">Update a Leader</button>
+            <button class="leaderBtn">Delete a Leader</button>
+        </div>
+        <ul class="leaderList">
+            <li class="leaderListItem">LeaderName &middot; GroupName</li>
+            <li class="leaderListItem">LeaderName &middot; GroupName</li>
+            <li class="leaderListItem">LeaderName &middot; GroupName</li>
+            <li class="leaderListItem">LeaderName &middot; GroupName</li>
+            <li class="leaderListItem">LeaderName &middot; GroupName</li>
         </ul>
     </div>
 </div>
