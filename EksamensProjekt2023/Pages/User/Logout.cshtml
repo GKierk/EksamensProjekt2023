@@ -1,0 +1,17 @@
+﻿@page
+@model EksamensProjekt2023.Pages.User.LogoutModel
+@{
+}
+
+<form method="post">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-12 col-lg-4 align-items-center"></div>
+            <p>Are you sure you want to logout?</p>
+            <p>
+                <button asp-page-handler="Logout" class="btn btn-primary">Yes</button>
+                <button asp-page-handler="NoLogout" class="btn btn-light m-lg-5 border-dark">No</button>
+            </p>
+        </div>
+    </div>
+</form>
