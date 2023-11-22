@@ -4,44 +4,59 @@
     ViewData["Title"] = "Administrator Dashboard";
 }
 @*side Panel with "logged in" account - links to other pages*@
-
-<h1 class="adminPanelMainHeader">Dashboard</h1>
-<div class="adminPanelMain_RevenueContainer">
-    <h3 class="adminPanelMain_RevenueHeader">Current Sales</h3>
-    <svg class="revenueLine" xmlns="http://www.w3.org/2000/svg" width="1451.506" height="174.908" viewBox="0 0 1451.506 174.908">
-        <g id="Group_2" data-name="Group 2" transform="translate(-0.486 -166.576)">
-            <path id="Path_5" data-name="Path 5" d="M1970.041,1491.067" transform="translate(-1960 -1295)" fill="none" stroke="#000" stroke-width="2"/>
-            <line id="Line_2" data-name="Line 2" y1="4" x2="295" transform="translate(0.5 285.5)" fill="none" stroke="#000" stroke-width="2"/>
-            <line id="Line_3" data-name="Line 3" y1="89" x2="154" transform="translate(295.5 196.5)" fill="none" stroke="#000" stroke-width="2"/>
-            <line id="Line_4" data-name="Line 4" x2="206" transform="translate(449.5 196.5)" fill="none" stroke="#000" stroke-width="2"/>
-            <line id="Line_5" data-name="Line 5" y1="29" x2="70" transform="translate(655.5 167.5)" fill="none" stroke="#000" stroke-width="2"/>
-            <line id="Line_6" data-name="Line 6" x2="38" y2="118" transform="translate(725.5 167.5)" fill="none" stroke="#000" stroke-width="2"/>
-            <line id="Line_7" data-name="Line 7" x2="105" y2="55" transform="translate(763.5 285.5)" fill="none" stroke="#000" stroke-width="2"/>
-            <line id="Line_8" data-name="Line 8" y1="27" x2="151" transform="translate(868.5 313.5)" fill="none" stroke="#000" stroke-width="2"/>
-            <line id="Line_9" data-name="Line 9" y1="95" x2="66" transform="translate(1019.5 218.5)" fill="none" stroke="#000" stroke-width="2"/>
-            <line id="Line_10" data-name="Line 10" y1="24" x2="147" transform="translate(1085.5 194.5)" fill="none" stroke="#000" stroke-width="2"/>
-            <line id="Line_11" data-name="Line 11" x2="90" y2="61" transform="translate(1232.5 194.5)" fill="none" stroke="#000" stroke-width="2"/>
-            <line id="Line_12" data-name="Line 12" x2="129" y2="73" transform="translate(1322.5 255.5)" fill="none" stroke="#000" stroke-width="2"/>
-        </g>
-    </svg>
+<div class="adminPanelSide">
+    <div class="adminPanelSide_User">
+        <img src="https://picsum.photos/150/150?grayscale" alt="placeholder for logged in account">
+        <h3>Welcome User.Placeholder</h3>
+    </div>
+        <ul class="adminPanelSide_LinkContainer">
+        <li class="adminPanelSide_LinkItem"><a href="page1">Page1</a></li>
+        <li class="adminPanelSide_LinkItem"><a href="page2">Page2</a></li>
+        <li class="adminPanelSide_LinkItem"><a href="page3">Page3</a></li>
+        <li class="adminPanelSide_LinkItem"><a href="page4">Page4</a></li>
+    </ul>
+    <button class="adminPanelSide_logout">Log Out</button>
 </div>
 
-<div class="adminPanelMain_groupsContainer">
-    <h3 class="adminPanelMain_groupsHeader">Active Groups</h3>
-    <div class="adminPanelMain_groups-btnContainer">
-        <button class="groupsBtn">See All Groups</button>
-        <button calss="groupsBtn">Order Groups By Sales</button>
-        <button class="groupsBtn">Create New Group</button>
-        <button class="groupsBtn">Update a Group</button>
-        <button class="groupsBtn">Delete a Group</button>
+<div class="adminPanelMain">
+    <h1 class="adminPanelMain_Header">Dashboard</h1>
+    <div class="adminPanelMain_RevenueContainer">
+        <h3 class="adminPanelMain_RevenueHeader">Current Sales</h3>
+        <svg class="revenueLine" xmlns="http://www.w3.org/2000/svg" width="1451.506" height="174.908" viewBox="0 0 1451.506 174.908">
+            <g id="Group_2" data-name="Group 2" transform="translate(-0.486 -166.576)">
+                <path id="Path_5" data-name="Path 5" d="M1970.041,1491.067" transform="translate(-1960 -1295)" fill="none" stroke="#000" stroke-width="2"/>
+                <line id="Line_2" data-name="Line 2" y1="4" x2="295" transform="translate(0.5 285.5)" fill="none" stroke="#000" stroke-width="2"/>
+                <line id="Line_3" data-name="Line 3" y1="89" x2="154" transform="translate(295.5 196.5)" fill="none" stroke="#000" stroke-width="2"/>
+                <line id="Line_4" data-name="Line 4" x2="206" transform="translate(449.5 196.5)" fill="none" stroke="#000" stroke-width="2"/>
+                <line id="Line_5" data-name="Line 5" y1="29" x2="70" transform="translate(655.5 167.5)" fill="none" stroke="#000" stroke-width="2"/>
+                <line id="Line_6" data-name="Line 6" x2="38" y2="118" transform="translate(725.5 167.5)" fill="none" stroke="#000" stroke-width="2"/>
+                <line id="Line_7" data-name="Line 7" x2="105" y2="55" transform="translate(763.5 285.5)" fill="none" stroke="#000" stroke-width="2"/>
+                <line id="Line_8" data-name="Line 8" y1="27" x2="151" transform="translate(868.5 313.5)" fill="none" stroke="#000" stroke-width="2"/>
+                <line id="Line_9" data-name="Line 9" y1="95" x2="66" transform="translate(1019.5 218.5)" fill="none" stroke="#000" stroke-width="2"/>
+                <line id="Line_10" data-name="Line 10" y1="24" x2="147" transform="translate(1085.5 194.5)" fill="none" stroke="#000" stroke-width="2"/>
+                <line id="Line_11" data-name="Line 11" x2="90" y2="61" transform="translate(1232.5 194.5)" fill="none" stroke="#000" stroke-width="2"/>
+                <line id="Line_12" data-name="Line 12" x2="129" y2="73" transform="translate(1322.5 255.5)" fill="none" stroke="#000" stroke-width="2"/>
+            </g>
+        </svg>
     </div>
-    <ul class="groupsList">
-        <li class="groupsListItem">group 1 &middot; City 1 &middot; #2 on sales</li>
-        <li class="groupsListItem">group 2 &middot; City 2 &middot; #4 on sales</li>
-        <li class="groupsListItem">group 3 &middot; City 3 &middot; #5 on sales</li>
-        <li class="groupsListItem">group 4 &middot; City 4 &middot; #1 on sales</li>
-        <li class="groupsListItem">group 5 &middot; City 5 &middot; #3 on sales</li>
-    </ul>
+
+    <div class="adminPanelMain_groupsContainer">
+        <h3 class="adminPanelMain_groupsHeader">Active Groups</h3>
+        <div class="adminPanelMain_groups-btnContainer">
+            <button class="groupsBtn">See All Groups</button>
+            <button calss="groupsBtn">Order Groups By Sales</button>
+            <button class="groupsBtn">Create New Group</button>
+            <button class="groupsBtn">Update a Group</button>
+            <button class="groupsBtn">Delete a Group</button>
+        </div>
+        <ul class="groupsList">
+            <li class="groupsListItem">group 1 &middot; City 1 &middot; #2 on sales</li>
+            <li class="groupsListItem">group 2 &middot; City 2 &middot; #4 on sales</li>
+            <li class="groupsListItem">group 3 &middot; City 3 &middot; #5 on sales</li>
+            <li class="groupsListItem">group 4 &middot; City 4 &middot; #1 on sales</li>
+            <li class="groupsListItem">group 5 &middot; City 5 &middot; #3 on sales</li>
+        </ul>
+    </div>
 </div>
 
 @* 
