@@ -1,0 +1,16 @@
+.adminPanel {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 10% 90%;
+    grid-template-areas: "side main";
+}
+.adminPanelSide {
+    grid-area: "side";
+    margin-right: 25px;
+    height: 100vh;
+    background-color: #79BCB8;
+}
+
+.adminPanelMain {
+    grid-area: "main";
+}
