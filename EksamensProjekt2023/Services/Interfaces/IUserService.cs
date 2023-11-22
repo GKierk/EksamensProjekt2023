@@ -7,5 +7,5 @@ namespace EksamensProjekt2023.Services.Interfaces;
 /// </summary>
 public interface IUserService
 {
-    public IEnumerable<User> GetUsers();
+    public IEnumerable<UserProfile> GetUsers();
 }
