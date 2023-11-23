@@ -30,8 +30,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/AdminPanel">Dashboard</a>
                         </li>
                     </ul>
-                    @{
-                        if(SignInManager.IsSignedIn(User))
+                    @{if(SignInManager.IsSignedIn(User))
                         {
                             <ul class="navbar-nav justify-content-end flex-grow-1">
                                 <li class="nav-item">
