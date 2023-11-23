@@ -364,3 +364,6 @@ FodyWeavers.xsd
 
 # Ignore appsettings.json
 EksamensProjekt2023/appsettings.json
+
+# Mac users
+.DS_Store
