@@ -1,0 +1,72 @@
+.adminPanel {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 10% 90%;
+    grid-template-areas: "side main";
+    padding: 5px;
+}
+/* #region Side */
+.adminPanelSide {
+    margin-right: 50px;
+    grid-area: "side";
+    height: 100vh;
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #79BCB8;
+}
+
+.adminPanel_userImg {
+    height: 75px;
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 50px;
+    border-radius: 500px;
+}
+.adminPanel_userName {
+    font-weight: 300;
+    font-size: 24px;
+}
+
+.adminPanelSide_LinkContainer {
+    list-style-type: none;
+    font-size: 28px;
+    font-family: var(--fontHeader);
+}
+.adminPanelSide_LinkItem {
+    padding: 15px;
+    transition: all ease-in-out 250ms;
+}
+.adminPanelSide_LinkItem:hover {
+    font-size: 32px;
+}
+.adminPanelSide_LinkItem:hover a {
+    color: white;
+    transition: color ease-in-out 250ms;
+}
+
+.adminPanelSide_LinkItem a {
+    text-decoration: none;
+    color: black;
+}
+.adminPanelSide_logout {
+    font-family: var(--fontHeader);
+    font-weight: 500;
+    border: thin solid black;
+    background-color: white;
+    color: black;
+    text-align: center;
+    width: 10em;
+    height: 2em;
+    border-radius: 2em;
+}
+/* #endregion  */
+
+.adminPanelMain {
+    grid-area: "main";
+}
+

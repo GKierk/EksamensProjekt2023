@@ -4,17 +4,81 @@
     ViewData["Title"] = "Administrator Dashboard";
 }
 
+<div class="adminPanel">
+    <div class="adminPanelSide">
+        <div class="adminPanelSide_User">
+            <img class="adminPanel_userImg" src="/img/userPlaceholder.png" alt="placeholder for logged in account">
+            <h3 class="adminPanel_userName">Welcome User.Placeholder</h3>
+        </div>
+            <ul class="adminPanelSide_LinkContainer">
+            <li class="adminPanelSide_LinkItem"><a href="page1">Page1</a></li>
+            <li class="adminPanelSide_LinkItem"><a href="page2">Page2</a></li>
+            <li class="adminPanelSide_LinkItem"><a href="page3">Page3</a></li>
+            <li class="adminPanelSide_LinkItem"><a href="page4">Page4</a></li>
+        </ul>
+        <button class="adminPanelSide_logout">Log Out</button>
+    </div>
 
-<article class="adminPanelMainContent">
-<p>This is for main page content like</p>
-<ul>
-<li>Manage Children groups</li>
-<li>Create new Children group</li>
-<li>Amount of raffle tickets</li>
-<li>Gained Revenue</li>
-<li>List of leaders with attached Children Groups</li>
-</ul>
-</article>
-<aside class="adminPanelSideContent">
-    <p>put chat box into here i think probably </p>
-</aside>
+    <div class="adminPanelMain">
+        <h1 class="adminPanelMain_Header">Dashboard</h1>
+
+        <div class="adminPanelMain_RevenueContainer">
+            <h3 class="adminPanelMain_RevenueHeader">Current Sales</h3>
+            <div class="raffleCounter">
+                <h4>sold Raffle Tickets:</h4>
+                <p>{SoldRaffles}</p>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="1369.414" height="259.414" viewBox="0 0 1369.414 259.414">
+                <g id="Group_5" data-name="Group 5" transform="translate(-231.793 -450.793)">
+                    <line id="Line_13" data-name="Line 13" y1="193" x2="193" transform="translate(232.5 516.5)" fill="none" stroke="#000" stroke-width="2"/>
+                    <line id="Line_14" data-name="Line 14" x2="93" y2="93" transform="translate(425.5 516.5)" fill="none" stroke="#000" stroke-width="2"/>
+                    <line id="Line_15" data-name="Line 15" y1="158" x2="158" transform="translate(518.5 451.5)" fill="none" stroke="#000" stroke-width="2"/>
+                    <line id="Line_16" data-name="Line 16" x2="89" y2="89" transform="translate(676.5 451.5)" fill="none" stroke="#000" stroke-width="2"/>
+                    <line id="Line_17" data-name="Line 17" y1="44" x2="45" transform="translate(765.5 496.5)" fill="none" stroke="#000" stroke-width="2"/>
+                    <line id="Line_18" data-name="Line 18" x2="75" y2="75" transform="translate(810.5 496.5)" fill="none" stroke="#000" stroke-width="2"/>
+                    <line id="Line_19" data-name="Line 19" y1="93" x2="93" transform="translate(885.5 478.5)" fill="none" stroke="#000" stroke-width="2"/>
+                    <line id="Line_20" data-name="Line 20" x2="182" y2="182" transform="translate(978.5 478.5)" fill="none" stroke="#000" stroke-width="2"/>
+                    <line id="Line_21" data-name="Line 21" y1="201" x2="201" transform="translate(1160.5 459.5)" fill="none" stroke="#000" stroke-width="2"/>
+                    <line id="Line_22" data-name="Line 22" x2="71" y2="71" transform="translate(1361.5 459.5)" fill="none" stroke="#000" stroke-width="2"/>
+                    <line id="Line_23" data-name="Line 23" y1="79" x2="79" transform="translate(1432.5 451.5)" fill="none" stroke="#000" stroke-width="2"/>
+                    <line id="Line_24" data-name="Line 24" x2="89" y2="89" transform="translate(1511.5 451.5)" fill="none" stroke="#000" stroke-width="2"/>
+                </g>
+            </svg>
+        </div>
+
+        <div class="adminPanelMain_groupsContainer">
+            <h3 class="adminPanelMain_groupsHeader">Active Groups</h3>
+            <div class="adminPanelMain_groups-btnContainer">
+                <button class="groupsBtn">See All Groups</button>
+                <button class="groupsBtn">Order Groups By Sales</button>
+                <button class="groupsBtn">Create New Group</button>
+                <button class="groupsBtn">Update a Group</button>
+                <button class="groupsBtn">Delete a Group</button>
+            </div>
+            <ul class="groupsList">
+                <li class="groupsListItem">group 1 &middot; City 1 &middot; #2 on sales</li>
+                <li class="groupsListItem">group 2 &middot; City 2 &middot; #4 on sales</li>
+                <li class="groupsListItem">group 3 &middot; City 3 &middot; #5 on sales</li>
+                <li class="groupsListItem">group 4 &middot; City 4 &middot; #1 on sales</li>
+                <li class="groupsListItem">group 5 &middot; City 5 &middot; #3 on sales</li>
+            </ul>
+        </div>
+        <div class="adminPanelMain_leaderContainer">
+            <h3 class="adminPanelMain_leaderHeader">Active Leaders</h3>
+            <div class="adminPanelMain__leader-btnContainer">
+                <button class="leaderBtn">See All Leaders</button>
+                <button class="leaderBtn">Order Leaders by Group number</button>
+                <button class="leaderBtn">Create New Leader</button>
+                <button class="leaderBtn">Update a Leader</button>
+                <button class="leaderBtn">Delete a Leader</button>
+            </div>
+            <ul class="leaderList">
+                <li class="leaderListItem">LeaderName &middot; GroupName</li>
+                <li class="leaderListItem">LeaderName &middot; GroupName</li>
+                <li class="leaderListItem">LeaderName &middot; GroupName</li>
+                <li class="leaderListItem">LeaderName &middot; GroupName</li>
+                <li class="leaderListItem">LeaderName &middot; GroupName</li>
+            </ul>
+        </div>
+    </div>
+</div>
