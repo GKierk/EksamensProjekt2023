@@ -18,20 +18,20 @@
         </ul>
     </div>
 
-    <h1> Page: @Model.pageName </h1>
+    <div class="listViewContent">
+        <h1> Page: @Model.pageName </h1>
 
-    @if (Model.pageName == "groups")
-    {
-        <p>Scenario A</p>
-    }
-    else if (Model.pageName == "leaders")
-    {
-        <p>Scenario B</p>
-    } 
-    else 
-    {
-        <p>Default Scenario</p>
-    }
-
-
+        @if (Model.pageName == "groups")
+        {
+            <p>Scenario A</p>
+        }
+        else if (Model.pageName == "leaders")
+        {
+            <p>Scenario B</p>
+        } 
+        else 
+        {
+            <p>Default Scenario</p>
+        }
+    </div>
 </div>
