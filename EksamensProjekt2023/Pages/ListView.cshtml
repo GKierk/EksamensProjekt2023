@@ -13,25 +13,44 @@
         </div>
         <ul class="adminPanelSide_LinkContainer">
             <li class="adminPanelSide_LinkItem"><a href="AdminPanel">Dashboard</a></li>
-            <li class="adminPanelSide_LinkItem"><a href="ListView?page=groups">Groups</a></li>
-            <li class="adminPanelSide_LinkItem"><a href="ListView?page=leaders">Leaders</a></li>
+            <li class="adminPanelSide_LinkItem"><a href="ListView?page=Groups">Groups</a></li>
+            <li class="adminPanelSide_LinkItem"><a href="ListView?page=Leaders">Leaders</a></li>
         </ul>
     </div>
 
     <div class="listViewContent">
-        <h1> Page: @Model.pageName </h1>
+        <h1> @Model.pageName </h1>
+        @* Checks what page the URL has listed to and gives content based on the page *@
+        @if (Model.pageName == "Groups")
+        {
+            <table class="dataContainer">
+                <tr>
+                    <th>ID</th>
+                    <th>Group Name</th>
+                    <th>Leader Name</th>
+                    <th>Members</th>
+                </tr>
 
-        @if (Model.pageName == "groups")
-        {
-            <p>Scenario A</p>
+            </table>
+
         }
-        else if (Model.pageName == "leaders")
+        else if (Model.pageName == "Leaders")
         {
-            <p>Scenario B</p>
+            <table class="dataContainer">
+                <tr>
+                    <th>ID</th>
+                    <th>Leader Name</th>
+                    <th>Groups</th>
+                </tr>
+
+            </table>
         } 
         else 
         {
-            <p>Default Scenario</p>
+            <p>The Page you're currently on has no linked data, please try another page</p>
+            <p>Return to <a href="AdminPanel">Home</a></p>
         }
+
+        
     </div>
 </div>
