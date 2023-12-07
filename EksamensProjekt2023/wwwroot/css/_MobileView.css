@@ -1,0 +1,7 @@
+/* Media query for screens with a maximum width of 768px (typical tablet size) */
+@media (max-width: 768px) {
+}
+
+/* Media query for screens with a maximum width of 480px (typical mobile size) */
+@media (max-width: 480px) {
+}
