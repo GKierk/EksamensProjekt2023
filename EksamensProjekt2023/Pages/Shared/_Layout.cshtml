@@ -34,6 +34,15 @@
                         {
                             <ul class="navbar-nav justify-content-end flex-grow-1">
                                 <li class="nav-item">
+                                    <p class="mb-0 nav-link text-dark">Welcome Admin@*{data.UserloggedIn}*@</p>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="/ListView?page=Groups">Groups </a>
+                                </li>
+                                <li class="nav-item mb-sm-1">
+                                    <a class="nav-link text-dark" href="/ListView?page=Leaders">Leaders</a>
+                                </li>
+                                <li class="nav-item">
                                     <a asp-page="/User/Logout" class="btn btn-primary">Logout</a>
                                 </li>
                             </ul>
@@ -50,12 +59,13 @@
                             </ul>
                         }
                     }
+                    
                 </div>
             </div>
         </nav>
     </header>
     <div>
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3 container-fluid">
             @RenderBody()
         </main>
     </div>
