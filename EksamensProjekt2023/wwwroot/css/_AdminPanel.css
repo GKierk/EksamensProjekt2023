@@ -2,7 +2,7 @@
 /// Date Created: 2023-11-20 - 2023-11-26
 /// Author: Lasse B. Hindsberg
 */
-
+/* 
 .adminPanel {
     width: 100%;
     display: grid;
@@ -10,7 +10,6 @@
     grid-template-areas: "side main";
     padding: 5px;
 }
-/* #region Side */
 .adminPanelSide {
     margin-right: 50px;
     grid-area: "side";
@@ -23,6 +22,10 @@
     background-color: var(--mainColor);
 }
 
+.adminPanelGraph {
+    height: auto;
+    width: 50%;
+}
 .adminPanel_userImg {
     height: 75px;
     width: auto;
@@ -69,9 +72,8 @@
     height: 2em;
     border-radius: 2em;
 }
-/* #endregion  */
 
 .adminPanelMain {
     grid-area: "main";
 }
-
+ */
