@@ -5,21 +5,9 @@
 }
 
 <div class="listViewContainer">
-    @* reusing Admin Panel styling since it repeats *@
-    <div class="adminPanelSide">
-        <div class="adminPanelSide_User">
-            <img class="adminPanel_userImg" src="/img/userPlaceholder.png" alt="placeholder for logged in account">
-            <h3 class="adminPanel_userName">Welcome User.Placeholder</h3>
-        </div>
-        <ul class="adminPanelSide_LinkContainer">
-            <li class="adminPanelSide_LinkItem"><a href="AdminPanel">Dashboard</a></li>
-            <li class="adminPanelSide_LinkItem"><a href="ListView?page=Groups">Groups</a></li>
-            <li class="adminPanelSide_LinkItem"><a href="ListView?page=Leaders">Leaders</a></li>
-        </ul>
-    </div>
-
     <div class="listViewContent">
         <h1> @Model.pageName </h1>
+        <a class="text-body-secondary link-info" href="AdminPanel">Return to Dashboard</a>
         @* Checks what page the URL has listed to and gives content based on the page *@
         @if (Model.pageName == "Groups")
         {
