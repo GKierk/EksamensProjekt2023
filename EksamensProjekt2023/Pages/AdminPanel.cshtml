@@ -20,15 +20,14 @@
         </ul>
         </div>
     *@
-    <div class="adminPanelMain">
-        <h1 class="adminPanelMain_Header">Dashboard</h1>
-
-        <div class="container-sm p-5">
-            <h3 class="adminPanelMain_RevenueHeader">Current Sales</h3>
+    <div class="container-sm mx-auto">
+        <h1 class="h1">Dashboard</h1>
+        <div class="p-5">
+            <h3 class="h3">Current Sales</h3>
             <div>
-                <h4>sold Raffle Tickets: @*{@data.SoldTickets}*@</h4>
+                <h4 class="h4">sold Raffle Tickets: 4400@*{@data.SoldTickets}*@</h4>
             </div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="1369.414" height="259.414" viewBox="0 0 1369.414 259.414">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1369.414" height="259.414" style="max-width:100%; height: auto;" viewBox="0 0 1369.414 259.414">
                 <g id="Group_5" data-name="Group 5" transform="translate(-231.793 -450.793)">
                     <line id="Line_13" data-name="Line 13" y1="193" x2="193" transform="translate(232.5 516.5)" fill="none" stroke="#000" stroke-width="2"/>
                     <line id="Line_14" data-name="Line 14" x2="93" y2="93" transform="translate(425.5 516.5)" fill="none" stroke="#000" stroke-width="2"/>
@@ -48,12 +47,18 @@
 
         <div class="adminPanelMain_groupsContainer">
             <h3 class="adminPanelMain_groupsHeader">Active Groups</h3>
-            <div class="adminPanelMain_groups-btnContainer">
-                <button class="groupsBtn">See All Groups</button>
-                <button class="groupsBtn">Order Groups By Sales</button>
-                <button class="groupsBtn">Create New Group</button>
-                <button class="groupsBtn">Update a Group</button>
-                <button class="groupsBtn">Delete a Group</button>
+            <div class="btn-group-sm" role="group">
+                <button class="btn btn-outline-primary"><a href="listview?page=Groups">See All Groups</a></button>
+                <div class="btn-group" role="group">
+                    <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                     Edit Data
+                 </button>
+                    <ul class="dropdown-menu px-0 py-0 mx-0 my-0">
+                <li class="dropdown-item bg-success" href="#">Create New Group</li>
+                <li class="dropdown-item bg-info">Update a Group</li>
+                <li class="dropdown-item bg-danger">Delete a Group</li>
+                 </ul>
+                </div>
             </div>
             <ul class="groupsList">
                 <li class="groupsListItem">group 1 &middot; City 1 &middot; #2 on sales</li>
