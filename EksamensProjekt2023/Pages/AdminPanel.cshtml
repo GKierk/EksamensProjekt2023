@@ -22,12 +22,10 @@
     *@
     <div class="container-sm mx-auto">
         <h1 class="h1">Dashboard</h1>
-        <div class="p-5">
-            <h3 class="h3">Current Sales</h3>
+        <h4 class="h4">Current Sales</h4>
+        <h6 class="h6">sold Raffle Tickets: 4400@*{@data.SoldTickets}*@</h6>
             <div>
-                <h4 class="h4">sold Raffle Tickets: 4400@*{@data.SoldTickets}*@</h4>
-            </div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="1369.414" height="259.414" style="max-width:100%; height: auto;" viewBox="0 0 1369.414 259.414">
+            <svg class="dataGraph" xmlns="http://www.w3.org/2000/svg" width="1369.414" height="259.414" viewBox="0 0 1369.414 259.414">
                 <g id="Group_5" data-name="Group 5" transform="translate(-231.793 -450.793)">
                     <line id="Line_13" data-name="Line 13" y1="193" x2="193" transform="translate(232.5 516.5)" fill="none" stroke="#000" stroke-width="2"/>
                     <line id="Line_14" data-name="Line 14" x2="93" y2="93" transform="translate(425.5 516.5)" fill="none" stroke="#000" stroke-width="2"/>
@@ -45,44 +43,53 @@
             </svg>
         </div>
 
-        <div class="adminPanelMain_groupsContainer">
-            <h3 class="adminPanelMain_groupsHeader">Active Groups</h3>
-            <div class="btn-group-sm" role="group">
+        <div class="container-sm">
+            <h3 class="h3 text-dark">Active Groups</h3>
+            <div class="btn-group" role="group">
                 <button class="btn btn-outline-primary"><a href="listview?page=Groups">See All Groups</a></button>
                 <div class="btn-group" role="group">
                     <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
-                     Edit Data
-                 </button>
+                        Edit Data
+                    </button>
+
                     <ul class="dropdown-menu px-0 py-0 mx-0 my-0">
-                <li class="dropdown-item bg-success" href="#">Create New Group</li>
+                <li class="dropdown-item bg-success">Create New Group</li>
                 <li class="dropdown-item bg-info">Update a Group</li>
                 <li class="dropdown-item bg-danger">Delete a Group</li>
-                 </ul>
+                    </ul>
                 </div>
             </div>
-            <ul class="groupsList">
-                <li class="groupsListItem">group 1 &middot; City 1 &middot; #2 on sales</li>
-                <li class="groupsListItem">group 2 &middot; City 2 &middot; #4 on sales</li>
-                <li class="groupsListItem">group 3 &middot; City 3 &middot; #5 on sales</li>
-                <li class="groupsListItem">group 4 &middot; City 4 &middot; #1 on sales</li>
-                <li class="groupsListItem">group 5 &middot; City 5 &middot; #3 on sales</li>
+
+            <ul class="list-group list-group-flush">
+                @* turn this into a first 5 forEach loop over boernegroupper *@
+                <li class="list-group-item">group 1 &middot; City 1</li>
+                <li class="list-group-item">group 2 &middot; City 2</li>
+                <li class="list-group-item">group 3 &middot; City 3</li>
+                <li class="list-group-item">group 4 &middot; City 4</li>
+                <li class="list-group-item">group 5 &middot; City 5</li>
             </ul>
-        </div>
-        <div class="adminPanelMain_leaderContainer">
-            <h3 class="adminPanelMain_leaderHeader">Active Leaders</h3>
-            <div class="adminPanelMain__leader-btnContainer">
-                <button class="leaderBtn">See All Leaders</button>
-                <button class="leaderBtn">Order Leaders by Group number</button>
-                <button class="leaderBtn">Create New Leader</button>
-                <button class="leaderBtn">Update a Leader</button>
-                <button class="leaderBtn">Delete a Leader</button>
+        </div>a
+
+        <div class="container-sm">
+            <h3 class="h3 text-dark">Active Leaders</h3>
+            <div class="btn-group" role="group">
+                <button class="btn btn-outline-primary"><a href="listview?page=Leaders">See All Leaders</a></button>
+                <div class="btn-group" role="group">
+                    <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown"> Edit Leaders</button>
+
+                    <ul class="dropdown-menu px-0 py-0 mx-0 my-0">
+                        <li class="dropdown-item bg-success">Create New Leader</li>
+                        <li class="dropdown-item bg-info">Update a Leader</li>
+                        <li class="dropdown-item bg-danger">Delete a Leader</li>
+                  </ul>
+                </div>
             </div>
-            <ul class="leaderList">
-                <li class="leaderListItem">LeaderName &middot; GroupName</li>
-                <li class="leaderListItem">LeaderName &middot; GroupName</li>
-                <li class="leaderListItem">LeaderName &middot; GroupName</li>
-                <li class="leaderListItem">LeaderName &middot; GroupName</li>
-                <li class="leaderListItem">LeaderName &middot; GroupName</li>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">LeaderName &middot; GroupName</li>
+                <li class="list-group-item">LeaderName &middot; GroupName</li>
+                <li class="list-group-item">LeaderName &middot; GroupName</li>
+                <li class="list-group-item">LeaderName &middot; GroupName</li>
+                <li class="list-group-item">LeaderName &middot; GroupName</li>
             </ul>
         </div>
     </div>
