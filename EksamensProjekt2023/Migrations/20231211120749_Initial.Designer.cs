@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EksamensProjekt2023.Migrations
 {
     [DbContext(typeof(TastanDBContext))]
-    [Migration("20231211105451_Records")]
-    partial class Records
+    [Migration("20231211120749_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -256,11 +256,11 @@ namespace EksamensProjekt2023.Migrations
 
             modelBuilder.Entity("EksamensProjekt2023.Models.Record", b =>
                 {
-                    b.HasOne("EksamensProjekt2023.Models.UserProfile", "SalesPerson")
+                    b.HasOne("EksamensProjekt2023.Models.UserProfile", "UserProfile")
                         .WithMany()
                         .HasForeignKey("Id");
 
-                    b.Navigation("SalesPerson");
+                    b.Navigation("UserProfile");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

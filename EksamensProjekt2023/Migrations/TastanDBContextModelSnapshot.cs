@@ -253,11 +253,11 @@ namespace EksamensProjekt2023.Migrations
 
             modelBuilder.Entity("EksamensProjekt2023.Models.Record", b =>
                 {
-                    b.HasOne("EksamensProjekt2023.Models.UserProfile", "SalesPerson")
+                    b.HasOne("EksamensProjekt2023.Models.UserProfile", "UserProfile")
                         .WithMany()
                         .HasForeignKey("Id");
 
-                    b.Navigation("SalesPerson");
+                    b.Navigation("UserProfile");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
