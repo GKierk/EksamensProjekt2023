@@ -9,26 +9,24 @@
 *@
 
 <div class="adminPanel">
-    <div class="adminPanelSide">
+@*    <div class="adminPanelSide">
         <div class="adminPanelSide_User">
-            <img class="adminPanel_userImg" src="/img/userPlaceholder.png" alt="placeholder for logged in account">
             <h3 class="adminPanel_userName">Welcome User.Placeholder</h3>
         </div>
             <ul class="adminPanelSide_LinkContainer">
-            <li class="adminPanelSide_LinkItem"><a href="AdminPanel">Dashboard</a></li>
-            <li class="adminPanelSide_LinkItem"><a href="ListView?page=Groups">Groups</a></li>
-            <li class="adminPanelSide_LinkItem"><a href="ListView?page=Leaders">Leaders</a></li>
+            <li class="nav-item"><a asp-area="" asp-page="/AdminPanel">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="ListView?page=Groups">Groups</a></li>
+            <li class="nav-item"><a class="nav-link" href="ListView?page=Leaders">Leaders</a></li>
         </ul>
-    </div>
-
+        </div>
+    *@
     <div class="adminPanelMain">
         <h1 class="adminPanelMain_Header">Dashboard</h1>
 
-        <div class="adminPanelMain_RevenueContainer">
+        <div class="container-sm p-5">
             <h3 class="adminPanelMain_RevenueHeader">Current Sales</h3>
-            <div class="raffleCounter">
-                <h4>sold Raffle Tickets:</h4>
-                <p>{SoldRaffles}</p>
+            <div>
+                <h4>sold Raffle Tickets: @*{@data.SoldTickets}*@</h4>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" width="1369.414" height="259.414" viewBox="0 0 1369.414 259.414">
                 <g id="Group_5" data-name="Group 5" transform="translate(-231.793 -450.793)">
