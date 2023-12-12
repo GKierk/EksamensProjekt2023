@@ -23,24 +23,23 @@ public class CreateRecordModel : PageModel
     [BindProperty]
     public Record Record { get; set; }
 
-
-    public void OnGet()
+    public void OnGet(string Id)
     {
+        UserProfile userProfile = dBContext.UserProfiles.Find(Id);
+        Record.UserProfile = userProfile;
     }
 
-    public IActionResult OnPost()
+    public IActionResult OnPost(string Id)
     {
-        if (ModelState.IsValid)
-        {
-            string userId = Record.UserProfile.Id;
-            UserProfile? user = dBContext.UserProfiles.Find(userId);
+        UserProfile userProfile = dBContext.UserProfiles.Find(Id);
 
-            if (user != null)
-            {
-                Record.UserProfile = user;
-                dBContext.Records.Add(Record);
-                dBContext.SaveChanges();
-            }
+        if (userProfile != null)
+        {
+            Record.UserProfile = userProfile;
+            dBContext.Records.Add(Record);
+            dBContext.SaveChanges();
+
+            return RedirectToPage("/AdminPanel/ReadSale");
         }
 
         return Page();
