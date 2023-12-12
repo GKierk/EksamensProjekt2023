@@ -1,0 +1,51 @@
+﻿@page
+@model EksamensProjekt2023.Pages.AdminPanel.ReadSaleModel
+@{
+}
+
+<div>
+    <form method="post">
+        <table class="table">
+            <thead>
+                <th>Navn</th>
+                <th>Salgs Oversigter</th>
+            </thead>
+            <tbody>
+                @foreach (var user in Model.UserProfiles)
+                {
+                    <tr>
+                        <td>@user.Email</td>
+                        <td>
+                            @foreach (var record in Model.Records)
+                            {
+                                if (user.Id == record.UserProfile.Id)
+                                {
+                                    <table class="table">
+                                        <thead>
+                                            <th>Dato</th>
+                                            <th>Antal Tildelte Lodder</th>
+                                            <th>Antal Solgte Lodder</th>
+                                            <th>Antal MobilePay Salg</th>
+                                            <th></th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>@record.Date.Year</td>
+                                                <td>@record.AmountGiven</td>
+                                                <td>@record.AmountSold</td>
+                                                <td>@record.MobilePayAmount</td>
+                                                <td>
+                                                    <input type="submit" value="Opdater" class="btn btn-primary" asp-page="/AdminPanel/UpdateSale" asp-route-RecordID="@record.RecordID"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                }
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+</div>
