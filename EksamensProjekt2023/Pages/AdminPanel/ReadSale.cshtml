@@ -4,11 +4,11 @@
 }
 
 <div>
-    <form method="post">
+    <form method="get">
         <table class="table">
             <thead>
-                <th>Navn</th>
-                <th>Salgs Oversigter</th>
+            <th>Navn</th>
+            <th>Salgs Oversigter</th>
             </thead>
             <tbody>
                 @foreach (var user in Model.UserProfiles)
@@ -22,11 +22,11 @@
                                 {
                                     <table class="table">
                                         <thead>
-                                            <th>Dato</th>
-                                            <th>Antal Tildelte Lodder</th>
-                                            <th>Antal Solgte Lodder</th>
-                                            <th>Antal MobilePay Salg</th>
-                                            <th></th>
+                                        <th>Dato</th>
+                                        <th>Antal Tildelte Lodder</th>
+                                        <th>Antal Solgte Lodder</th>
+                                        <th>Antal MobilePay Salg</th>
+                                        <th></th>
                                         </thead>
                                         <tbody>
                                             <tr>
@@ -35,7 +35,7 @@
                                                 <td>@record.AmountSold</td>
                                                 <td>@record.MobilePayAmount</td>
                                                 <td>
-                                                    <input type="submit" value="Opdater" class="btn btn-primary" asp-page="/AdminPanel/UpdateSale" asp-route-RecordID="@record.RecordID"/>
+                                                    <a class="btn btn-primary" asp-page="/AdminPanel/UpdateSale" asp-route-RecordID="@record.RecordID">Opdater</a>
                                                 </td>
                                             </tr>
                                         </tbody>
