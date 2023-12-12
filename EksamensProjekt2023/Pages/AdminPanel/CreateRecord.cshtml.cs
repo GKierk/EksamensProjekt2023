@@ -12,16 +12,16 @@ namespace EksamensProjekt2023.Pages.AdminPanel;
 /// </summary>
 public class CreateRecordModel : PageModel
 {
-    private TastanDBContext dBcontext;
+    private TastanDBContext dBContext;
 
     public CreateRecordModel(TastanDBContext context)
     {
         Record = new Record();
-        dBcontext = context;
+        dBContext = context;
     }
 
     [BindProperty]
-    public Record Record {  get; set; }
+    public Record Record { get; set; }
 
 
     public void OnGet()
@@ -33,13 +33,13 @@ public class CreateRecordModel : PageModel
         if (ModelState.IsValid)
         {
             string userId = Record.UserProfile.Id;
-            UserProfile? user = dBcontext.UserProfiles.Find(userId);
+            UserProfile? user = dBContext.UserProfiles.Find(userId);
 
             if (user != null)
             {
                 Record.UserProfile = user;
-                dBcontext.Records.Add(Record);
-                dBcontext.SaveChanges();
+                dBContext.Records.Add(Record);
+                dBContext.SaveChanges();
             }
         }
 
