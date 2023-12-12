@@ -1,9 +1,15 @@
 /* /// Date Created: 2023-11-20 - 2023-11-26
 /// Author: Lasse B. Hindsberg */
+/* 
+    Remade styling using bootstrap components and styling for mobile first coding.
 
 @import url(_Variables.css);
 
 @import url(_AdminPanel.css);
+
+@import url(_ListView.css);
+*/
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,4 +20,9 @@
 h1,h2,h3,h4,h5,h6 {
   font-family: var(--fontHeader);
   font-weight: 700;
+}
+/* styling svg file to not expand handheld screens */
+.dataGraph {
+    max-width:100%; 
+    height: auto;
 }

@@ -2,15 +2,14 @@
 /// Date Created: 2023-11-20 - 2023-11-26
 /// Author: Lasse B. Hindsberg
 */
-
+/* 
 .adminPanel {
     width: 100%;
     display: grid;
-    grid-template-rows: 10% 90%;
+    grid-template-columns: 1fr 3fr;
     grid-template-areas: "side main";
     padding: 5px;
 }
-/* #region Side */
 .adminPanelSide {
     margin-right: 50px;
     grid-area: "side";
@@ -20,9 +19,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    background-color: #79BCB8;
+    background-color: var(--mainColor);
 }
 
+.adminPanelGraph {
+    height: auto;
+    width: 50%;
+}
 .adminPanel_userImg {
     height: 75px;
     width: auto;
@@ -69,9 +72,8 @@
     height: 2em;
     border-radius: 2em;
 }
-/* #endregion  */
 
 .adminPanelMain {
     grid-area: "main";
 }
-
+ */

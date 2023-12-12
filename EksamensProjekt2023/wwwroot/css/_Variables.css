@@ -18,8 +18,9 @@
     :root {
         --fontHeader: 'Oxygen', sans-serif;
         --fontText: 'Roboto', sans-serif;
-    
         /* Colors for Elements on pages */
+        --mainColor: #326295; 
+        --textColor: #2f2f2f;
 
     }
     
