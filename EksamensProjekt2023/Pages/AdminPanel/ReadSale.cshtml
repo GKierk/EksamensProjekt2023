@@ -35,20 +35,19 @@
                                 {
                                     if (user.Id == record.UserProfile.Id)
                                     {
-
-                                            <tbody>
-                                                <tr>
-                                                    <td>@record.Date.Year</td>
-                                                    <td>@record.AmountGiven</td>
-                                                    <td>@record.AmountSold</td>
-                                                    <td>@record.MobilePayAmount</td>
-                                                    <td>
-                                                        <a class="btn btn-primary" asp-page="/AdminPanel/AssignLotteryTickets" asp-route-RecordID="@record.RecordID">Tildel Lodder</a>
-                                                        <a class="btn btn-primary" asp-page="/AdminPanel/UpdateSale" asp-route-RecordID="@record.RecordID">Opdater Salgs Tal</a>
-                                                        <a class="btn btn-danger" asp-page="/AdminPanel/DeleteRecord" asp-route-RecordID="@record.RecordID">Slet Salgs Oversigt</a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>@record.Date.Year</td>
+                                                <td>@record.AmountGiven</td>
+                                                <td>@record.AmountSold</td>
+                                                <td>@record.MobilePayAmount</td>
+                                                <td>
+                                                    <a class="btn btn-primary" asp-page="/AdminPanel/AssignLotteryTickets" asp-route-RecordID="@record.RecordID">Tildel Lodder</a>
+                                                    <a class="btn btn-primary" asp-page="/AdminPanel/UpdateSale" asp-route-RecordID="@record.RecordID">Opdater Salgs Tal</a>
+                                                    <a class="btn btn-danger" asp-page="/AdminPanel/DeleteRecord" asp-route-RecordID="@record.RecordID">Slet Salgs Oversigt</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
                                     }
                                 }
                             </table>
