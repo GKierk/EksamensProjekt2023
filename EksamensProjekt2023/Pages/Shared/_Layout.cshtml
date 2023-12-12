@@ -36,6 +36,15 @@
                                 <li class="nav-item">
                                     <p class="mb-0 nav-link text-dark">Welcome Admin@*{data.UserloggedIn}*@</p>
                                 </li>
+                                <div class="dropdown">
+                                    <a class="nav-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sales</a>
+
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="/AdminPanel/ReadSale">Read Sales</a>
+                                        <li><a class="dropdown-item" href="/AdminPanel/createRecord">Create New Sale</a></li>
+                                        <li><a class="dropdown-item" href="/AdminPanel/UpdateSale">Update Sales</a>
+                                    </ul>
+                                </div>
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" href="/ListView?page=Groups">Groups </a>
                                 </li>
