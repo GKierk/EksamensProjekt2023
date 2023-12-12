@@ -33,7 +33,7 @@
                                 </thead>
                                 @foreach (var record in Model.Records)
                                 {
-                                    if (record != null && record.UserProfile != null && user.Id == record.UserProfile.Id)
+                                    if (user.Id == record.UserProfile.Id)
                                     {
 
                                             <tbody>
