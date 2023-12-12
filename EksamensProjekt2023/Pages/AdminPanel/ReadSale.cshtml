@@ -16,37 +16,43 @@
                 @foreach (var user in Model.UserProfiles)
                 {
                     <tr>
-                        <td>@user.Email</td>
                         <td>
-                            @foreach (var record in Model.Records)
-                            {
-                                if (user.Id == record.UserProfile.Id)
+                            @user.Email <br />
+                            <a class="btn btn-primary" asp-page="/AdminPanel/CreateRecord" asp-route-Id="@user.Id">Opret Ny Salgs Oversigt</a>
+                        </td>
+                        <td>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Dato</th>
+                                        <th>Antal Tildelte Lodder</th>
+                                        <th>Antal Solgte Lodder</th>
+                                        <th>Antal MobilePay Salg</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                @foreach (var record in Model.Records)
                                 {
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Dato</th>
-                                                <th>Antal Tildelte Lodder</th>
-                                                <th>Antal Solgte Lodder</th>
-                                                <th>Antal MobilePay Salg</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>@record.Date.Year</td>
-                                                <td>@record.AmountGiven</td>
-                                                <td>@record.AmountSold</td>
-                                                <td>@record.MobilePayAmount</td>
-                                                <td>
-                                                    <a class="btn btn-primary" asp-page="/AdminPanel/AssignLotteryTickets" asp-route-RecordID="@record.RecordID">Tildel Lodder</a>
-                                                    <a class="btn btn-primary" asp-page="/AdminPanel/UpdateSale" asp-route-RecordID="@record.RecordID">Opdater Salgs Tal</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    if (record != null && record.UserProfile != null && user.Id == record.UserProfile.Id)
+                                    {
+
+                                            <tbody>
+                                                <tr>
+                                                    <td>@record.Date.Year</td>
+                                                    <td>@record.AmountGiven</td>
+                                                    <td>@record.AmountSold</td>
+                                                    <td>@record.MobilePayAmount</td>
+                                                    <td>
+                                                        <a class="btn btn-primary" asp-page="/AdminPanel/AssignLotteryTickets" asp-route-RecordID="@record.RecordID">Tildel Lodder</a>
+                                                        <a class="btn btn-primary" asp-page="/AdminPanel/UpdateSale" asp-route-RecordID="@record.RecordID">Opdater Salgs Tal</a>
+                                                        <a class="btn btn-danger" asp-page="/AdminPanel/DeleteRecord" asp-route-RecordID="@record.RecordID">Slet Salgs Oversigt</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+
+                                    }
                                 }
-                            }
+                            </table>
                         </td>
                     </tr>
                 }
