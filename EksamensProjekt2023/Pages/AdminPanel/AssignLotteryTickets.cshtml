@@ -1,0 +1,21 @@
+﻿@page
+@model EksamensProjekt2023.Pages.AdminPanel.AssignLotteryTicketsModel
+@{
+}
+<div>
+    <form method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Antal Tildelte Lodder</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input asp-for="Record.AmountGiven" type="number" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" class="btn btn-primary" value="Tildel Lodder" />
+    </form>
+</div>
