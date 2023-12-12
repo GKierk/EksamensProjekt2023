@@ -8,12 +8,16 @@
     <form method="post">
         <table class="table">
             <thead>
-                <th>Antal Solgte Lodder</th>
-                <th>Antal MobilePay Salg</th>
+                <tr>
+                    <th>Antal Solgte Lodder</th>
+                    <th>Antal MobilePay Salg</th>
+                </tr>
             </thead>
             <tbody>
-                <td><input asp-for="Record.AmountSold" type="number"/></td>
-                <td><input asp-for="Record.MobilePayAmount" type="number" /></td>
+                <tr>
+                    <td><input asp-for="Record.AmountSold" type="number" /></td>
+                    <td><input asp-for="Record.MobilePayAmount" type="number" /></td>
+                </tr>
             </tbody>
         </table>
         <input type="submit" class="btn btn-primary" value="Opdater" />
