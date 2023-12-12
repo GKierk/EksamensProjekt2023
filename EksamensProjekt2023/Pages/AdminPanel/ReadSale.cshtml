@@ -7,8 +7,10 @@
     <form method="get">
         <table class="table">
             <thead>
-            <th>Navn</th>
-            <th>Salgs Oversigter</th>
+                <tr>
+                    <th>Navn</th>
+                    <th>Salgs Oversigter</th>
+                </tr>
             </thead>
             <tbody>
                 @foreach (var user in Model.UserProfiles)
@@ -22,11 +24,13 @@
                                 {
                                     <table class="table">
                                         <thead>
-                                        <th>Dato</th>
-                                        <th>Antal Tildelte Lodder</th>
-                                        <th>Antal Solgte Lodder</th>
-                                        <th>Antal MobilePay Salg</th>
-                                        <th></th>
+                                            <tr>
+                                                <th>Dato</th>
+                                                <th>Antal Tildelte Lodder</th>
+                                                <th>Antal Solgte Lodder</th>
+                                                <th>Antal MobilePay Salg</th>
+                                                <th></th>
+                                            </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
@@ -35,7 +39,8 @@
                                                 <td>@record.AmountSold</td>
                                                 <td>@record.MobilePayAmount</td>
                                                 <td>
-                                                    <a class="btn btn-primary" asp-page="/AdminPanel/UpdateSale" asp-route-RecordID="@record.RecordID">Opdater</a>
+                                                    <a class="btn btn-primary" asp-page="/AdminPanel/AssignLotteryTickets" asp-route-RecordID="@record.RecordID">Tildel Lodder</a>
+                                                    <a class="btn btn-primary" asp-page="/AdminPanel/UpdateSale" asp-route-RecordID="@record.RecordID">Opdater Salgs Tal</a>
                                                 </td>
                                             </tr>
                                         </tbody>
