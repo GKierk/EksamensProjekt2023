@@ -11,36 +11,39 @@
         @* Checks what page the URL has listed to and gives content based on the page *@
         @if (Model.pageName == "Groups")
         {
-            <table class="dataContainer">
-                <tr>
-                    <th>ID</th>
-                    <th>Group Name</th>
-                    <th>Leader Name</th>
-                    <th>Members</th>
-                </tr>
-                @*<tr>
-                    <td>@item.ID</td>
-                    <td>@item.GroupName</td>
-                    <td>@item.LeaderName</td>
-                    <td>@item.Members</td>
-                </tr> *@
-
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th >ID</th>
+                        <th >Group Name</th>
+                        <th >Leader Name</th>
+                        <th >Members</th>
+                    </tr>
+                </thead>
+                    <tr>
+                        <td>@* @item.ID *@</td>
+                        <td>@* @item.GroupName*@</td>
+                        <td>@* @item.LeaderName*@</td>
+                        <td>@*a foreach function that makes a list from the array Members*@</td>
+                    </tr>
             </table>
 
         }
         else if (Model.pageName == "Leaders")
         {
-            <table class="dataContainer">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Leader Name</th>
+                        <th>Assigned Groups</th>
+                    </tr>
+                </thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Leader Name</th>
-                    <th>Groups</th>
+                    <td>@* @item.ID *@</td>
+                    <td>@* @item.LeaderName*@</td>
+                    <td>@* a foreach function for list of @item.Groups*@</td>
                 </tr>
-                @*<tr>
-                    <td>@item.ID</td>
-                    <td>@item.LeaderName</td>
-                    <td>@item.Groups</td>
-                </tr *@
             </table>
         } 
         else 
@@ -48,7 +51,5 @@
             <p>The Page you're currently on has no linked data, please try another page</p>
             <p>Return to <a href="AdminPanel">Home</a></p>
         }
-
-        
     </div>
 </div>
