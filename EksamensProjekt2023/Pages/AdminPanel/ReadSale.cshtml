@@ -5,7 +5,7 @@
 
 <div>
     <form method="get">
-        <table class="table">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Navn</th>
@@ -35,16 +35,23 @@
                                 {
                                     if (user.Id == record.UserProfile.Id)
                                     {
-                                        <tbody>
+                                        <tbody> 
                                             <tr>
                                                 <td>@record.Date.Year</td>
                                                 <td>@record.AmountGiven</td>
                                                 <td>@record.AmountSold</td>
                                                 <td>@record.MobilePayAmount</td>
                                                 <td>
-                                                    <a class="btn btn-primary" asp-page="/AdminPanel/AssignLotteryTickets" asp-route-RecordID="@record.RecordID">Tildel Lodder</a>
-                                                    <a class="btn btn-primary" asp-page="/AdminPanel/UpdateSale" asp-route-RecordID="@record.RecordID">Opdater Salgs Tal</a>
-                                                    <a class="btn btn-danger" asp-page="/AdminPanel/DeleteRecord" asp-route-RecordID="@record.RecordID">Slet Salgs Oversigt</a>
+                                                    <div class="btn-group" role="group">
+                                                        <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                                                            Rediger
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <a class="dropdown-item btn btn-primary" asp-page="/AdminPanel/AssignLotteryTickets" asp-route-RecordID="@record.RecordID">Tildel Lodder</a>
+                                                            <a class="dropdown-item btn btn-primary" asp-page="/AdminPanel/UpdateSale" asp-route-RecordID="@record.RecordID">Opdater Salgs Tal</a>
+                                                            <a class="dropdown-item btn btn-danger" asp-page="/AdminPanel/DeleteRecord" asp-route-RecordID="@record.RecordID">Slet Salgs Oversigt</a>
+                                                        </ul>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         </tbody>
