@@ -13,21 +13,21 @@ public class Group
 {
     public Group()
     {
-        GroupID = Guid.NewGuid().ToString();
+        Id = Guid.NewGuid().ToString();
         Members = new List<UserProfile>();
         GroupName = string.Empty;
     }
 
     public Group(string groupName, UserProfile groupLeader)
     {
-        GroupID = Guid.NewGuid().ToString();
+        Id = Guid.NewGuid().ToString();
         Members = new List<UserProfile>();
         GroupName = groupName;
         GroupLeader = groupLeader;
     }
 
     [Key]
-    public string GroupID { get; set; }
+    public string Id { get; set; }
     public string GroupName { get; set; }
     public List<UserProfile> Members { get; set; }
     [ForeignKey("Id")]
