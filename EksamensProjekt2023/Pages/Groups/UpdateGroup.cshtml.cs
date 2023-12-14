@@ -1,42 +1,42 @@
-using EksamensProjekt2023.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
+//using EksamensProjekt2023.Models;
+//using Microsoft.AspNetCore.Mvc;
+//using Microsoft.AspNetCore.Mvc.RazorPages;
+//using Microsoft.EntityFrameworkCore;
 
 //namespace EksamensProjekt2023.Pages.Groups
-/// <summary>
-/// Date Created: 2023-12-14 <br />
-/// Author: Muhammed Tastan<br />
-/// <br />
-/// 
-/// </summary>
+///// <summary>
+///// Date Created: 2023-12-14 <br />
+///// Author: Muhammed Tastan <br />
+///// <br />
+///// 
+///// </summary>
 //{
 //    public class UpdateGroupModel : PageModel
-//{
-//    private TastanDBContext dBContext;
-
-//    public UpdateGroupModel(TastanDBContext context)
 //    {
-//        dBContext = context;
-//    }
+//        private TastanDBContext dBContext;
 
-//    [BindProperty]
-//    public Group Group { get; set; }
-
-//    public void OnGet(string GroupID)
-//    {
-//        Group = dBContext.Groups.Include(g => g.Members).FirstOrDefault(g => g.GroupID == GroupID);
-//    }
-
-//    public IActionResult OnPost()
-//    {
-//        if (ModelState.IsValid)
+//        public UpdateGroupModel(TastanDBContext context)
 //        {
-//            dBContext.SaveChanges();
-//            return RedirectToPage("/AdminPanel/ReadGroup");
+//            dBContext = context;
 //        }
 
-//        return Page();
+//        [BindProperty]
+//        public Group Group { get; set; }
+
+//        public void OnGet(string GroupID)
+//        {
+//            Group = dBContext.Groups.Include(g => g.Members).FirstOrDefault(g => g.Id == GroupID);
+//        }
+
+//        public IActionResult OnPost()
+//        {
+//            if (ModelState.IsValid)
+//            {
+//                dBContext.SaveChanges();
+//                return RedirectToPage("/AdminPanel/ReadGroup");
+//            }
+
+//            return Page();
+//        }
 //    }
-//}
 //}

@@ -4,6 +4,7 @@ using EksamensProjekt2023.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EksamensProjekt2023.Migrations
 {
     [DbContext(typeof(TastanDBContext))]
-    partial class TastanDBContextModelSnapshot : ModelSnapshot
+    [Migration("20231214124707_RolesUpdate")]
+    partial class RolesUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,14 +27,19 @@ namespace EksamensProjekt2023.Migrations
 
             modelBuilder.Entity("EksamensProjekt2023.Models.Group", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("GroupID")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("GroupName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("GroupID");
+
+                    b.HasIndex("Id");
 
                     b.ToTable("Groups");
                 });
@@ -82,7 +90,7 @@ namespace EksamensProjekt2023.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("GroupId")
+                    b.Property<string>("GroupID")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("LockoutEnabled")
@@ -120,7 +128,7 @@ namespace EksamensProjekt2023.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GroupId");
+                    b.HasIndex("GroupID");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -294,9 +302,7 @@ namespace EksamensProjekt2023.Migrations
                 {
                     b.HasOne("EksamensProjekt2023.Models.UserProfile", "GroupLeader")
                         .WithMany()
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Id");
 
                     b.Navigation("GroupLeader");
                 });
@@ -314,7 +320,7 @@ namespace EksamensProjekt2023.Migrations
                 {
                     b.HasOne("EksamensProjekt2023.Models.Group", null)
                         .WithMany("Members")
-                        .HasForeignKey("GroupId");
+                        .HasForeignKey("GroupID");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

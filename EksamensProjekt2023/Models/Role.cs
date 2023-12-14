@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EksamensProjekt2023.Models;
 /// <summary>
@@ -9,5 +10,6 @@ namespace EksamensProjekt2023.Models;
 /// </summary>
 public class Role : IdentityRole
 {
-
+    [ForeignKey("Id")]
+    public virtual UserProfile UserProfile { get; set; }
 }

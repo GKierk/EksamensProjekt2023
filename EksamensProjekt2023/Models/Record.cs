@@ -24,7 +24,7 @@ public class Record
     public string RecordID { get; set; }
     public DateTime Date { get; set; }
     [ForeignKey("Id")]
-    public UserProfile UserProfile { get; set; }
+    public virtual UserProfile UserProfile { get; set; }
     public int AmountGiven { get; set; }
     public int AmountSold { get; set; }
     public int MobilePayAmount { get; set; }

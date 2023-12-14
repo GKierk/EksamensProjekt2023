@@ -4,28 +4,28 @@
 //using Microsoft.EntityFrameworkCore;
 
 //namespace EksamensProjekt2023.Pages.Groups
-/// <summary>
-/// Date Created: 2023-12-14 <br />
-/// Author: Muhammed Tastan<br />
-/// <br />
-/// 
-/// </summary>
+///// <summary>
+///// Date Created: 2023-12-14 <br />
+///// Author: Muhammed Tastan <br />
+///// <br />
+///// 
+///// </summary>
 //{
 //    public class ReadGroupModel : PageModel
-//{
-//    private TastanDBContext dBContext;
-
-//    public ReadGroupModel(TastanDBContext context)
 //    {
-//        dBContext = context;
-//    }
+//        private TastanDBContext dBContext;
 
-//    [BindProperty]
-//    public List<Group> Groups { get; set; } = new List<Group>();
+//        public ReadGroupModel(TastanDBContext context)
+//        {
+//            dBContext = context;
+//        }
 
-//    public void OnGet()
-//    {
-//        Groups = dBContext.Groups.Include(g => g.Members).ToList();
+//        [BindProperty]
+//        public List<Group> Groups { get; set; } = new List<Group>();
+
+//        public void OnGet()
+//        {
+//            Groups = dBContext.Groups.Include(g => g.Members).ToList();
+//        }
 //    }
-//}
 //}
