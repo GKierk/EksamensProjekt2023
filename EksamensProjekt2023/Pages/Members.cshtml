@@ -1,0 +1,47 @@
+﻿@page
+@model EksamensProjekt2023.Pages.MembersModel
+@{
+    ViewData["Title"] = "Members list of " @*add the data for group name*@;
+    
+}
+
+
+<div class="listViewContainer">
+    <div class="listViewContent">
+@{
+    /*Checks what the last page of the user was, if there isn't any "previous" page, it auto returns to "adminPanel"*/
+    string previousPage = Request.Headers["Referer"];
+    string returnLink = previousPage?.ToString() ?? "/AdminPanel";
+}
+        @*Turn this into group name, or like. group id or something :)*@
+        <h1 class="h1"> @Model.pageName  &middot; Members: </h1>
+        <a class="text-body-secondary link-info" href="@returnLink">Return to your previous page</a>
+            <table class="table table-striped">
+                <thead >
+                    <tr>
+                        <th >Members</th>
+                        <th >Sales</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nicklas</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>Peter</td>
+                        <td>30</td>
+                    </tr>
+                    @*THIS PART DOESN'T FUNCTION CURRENTLY, SINCE GROUPS DOESNT EXIST 
+                    @foreach (var member in Model.Members)
+                    {
+                        <tr>
+                            <td>@member.member</td>
+                        </tr>
+                    }
+                        *@
+                </tbody>
+            </table>
+    </div>
+</div>
