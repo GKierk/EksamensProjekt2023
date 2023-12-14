@@ -14,6 +14,6 @@ namespace EksamensProjekt2023.Models
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Record> Records { get; set; }
         public DbSet<Group> Groups { get; set; }
-
+        public new DbSet<Role> Roles {  get; set; }
     }
 }
