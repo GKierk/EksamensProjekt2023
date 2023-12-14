@@ -25,7 +25,7 @@ namespace EksamensProjekt2023.Pages.Groups
 
         public void OnGet(string GroupID)
         {
-            Group = dBContext.Groups.Include(g => g.Members).FirstOrDefault(g => g.GroupID == GroupID);
+            Group = dBContext.Groups.Include(g => g.Members).FirstOrDefault(g => g.Id == GroupID);
         }
 
         public IActionResult OnPost()
