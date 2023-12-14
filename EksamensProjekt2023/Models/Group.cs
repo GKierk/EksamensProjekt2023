@@ -30,6 +30,6 @@ public class Group
     public string GroupID { get; set; }
     public string GroupName { get; set; }
     public List<UserProfile> Members { get; set; }
-    [ForeignKey("UserID")]
+    [ForeignKey("Id")]
     public virtual UserProfile? GroupLeader { get; set; }
 }
