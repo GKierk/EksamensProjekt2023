@@ -84,9 +84,9 @@
                     <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown"> Edit Leaders</button>
 
                     <ul class="dropdown-menu px-0 py-0 mx-0 my-0">
-                        <li class="dropdown-item bg-success">Create New Leader</li>
-                        <li class="dropdown-item bg-info">Update a Leader</li>
-                        <li class="dropdown-item bg-danger">Delete a Leader</li>
+                        <a asp-page="/Leaders/CreateLeader" class="dropdown-item bg-success">Create New Leader</a>
+                        <a asp-page="/Leaders/UpdateLeader" class="dropdown-item bg-info">Update a Leader</a>
+                        <a asp-page="/Leaders/DeleteLeader" class="dropdown-item bg-danger">Delete a Leader</a>
                     </ul>
                 </div>
             </div>
