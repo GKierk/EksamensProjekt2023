@@ -62,11 +62,17 @@
 
             <ul class="list-group list-group-flush">
                 @* turn this into a first 5 forEach loop over boernegroupper *@
-                <li class="list-group-item">group 1 &middot; City 1</li>
-                <li class="list-group-item">group 2 &middot; City 2</li>
-                <li class="list-group-item">group 3 &middot; City 3</li>
-                <li class="list-group-item">group 4 &middot; City 4</li>
-                <li class="list-group-item">group 5 &middot; City 5</li>
+                @*
+                    @foreach (group in Groups) {
+                    <li class="list-group-item">@data.groupName &middot; @data.groupCombinedSales possibly? </li>
+                    }
+
+                *@
+                <li class="list-group-item">@*@data.groupName &middot; @data.groupLocation (except that one doesn't exist xd)*@</li>
+                <li class="list-group-item">@*@data.groupName &middot; @data.groupLocation (except that one doesn't exist xd)*@</li>
+                <li class="list-group-item">@*@data.groupName &middot; @data.groupLocation (except that one doesn't exist xd)*@</li>
+                <li class="list-group-item">@*@data.groupName &middot; @data.groupLocation (except that one doesn't exist xd)*@</li>
+                <li class="list-group-item">@*@data.groupName &middot; @data.groupLocation (except that one doesn't exist xd)*@</li>
             </ul>
         </div>
 
