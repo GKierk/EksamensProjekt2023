@@ -4,6 +4,7 @@ using EksamensProjekt2023.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EksamensProjekt2023.Migrations
 {
     [DbContext(typeof(TastanDBContext))]
-    partial class TastanDBContextModelSnapshot : ModelSnapshot
+    [Migration("20231217131743_Groups")]
+    partial class Groups
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,6 +91,9 @@ namespace EksamensProjekt2023.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("GroupId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -122,6 +128,8 @@ namespace EksamensProjekt2023.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("GroupId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -311,6 +319,13 @@ namespace EksamensProjekt2023.Migrations
                     b.Navigation("UserProfile");
                 });
 
+            modelBuilder.Entity("EksamensProjekt2023.Models.UserProfile", b =>
+                {
+                    b.HasOne("EksamensProjekt2023.Models.Group", null)
+                        .WithMany("Members")
+                        .HasForeignKey("GroupId");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -369,6 +384,11 @@ namespace EksamensProjekt2023.Migrations
                         .HasForeignKey("UserProfileId");
 
                     b.Navigation("UserProfile");
+                });
+
+            modelBuilder.Entity("EksamensProjekt2023.Models.Group", b =>
+                {
+                    b.Navigation("Members");
                 });
 #pragma warning restore 612, 618
         }
