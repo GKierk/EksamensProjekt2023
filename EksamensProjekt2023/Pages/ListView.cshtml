@@ -12,16 +12,16 @@
 <div class="listViewContainer">
     <div class="listViewContent">
         <h1> @Model.pageName </h1>
-        <a class="text-body-secondary link-info" href="AdminPanel">Return to Dashboard</a>
+        <a class="text-body-secondary link-info" href="AdminPanel">Gå Tilbage til AdminPanelet</a>
         @* Checks what page the URL has listed to and gives content based on the page *@
-        @if (Model.pageName == "Groups")
+        @if (Model.pageName == "Grupper")
         {
             <table class="table table-striped">
                 <thead >
                     <tr>
-                        <th >Group Name</th>
-                        <th >Leader Name</th>
-                        <th >Members</th>
+                        <th >Gruppe Navn</th>
+                        <th >Leder Navn</th>
+                        <th >Medlemmer</th>
 
                     </tr>
                 </thead>
@@ -32,19 +32,19 @@
                         <td> @item.GroupName</td>
                         <td> @item.LeaderName</td>
                         *@
-                        <td><a class="dropdown-item btn btn-primary" asp-page="/members" asp-route-RecordID=@*"@Groups.groupID"*@>View Members</a></td>
+                        <td><a class="dropdown-item btn btn-primary" asp-page="/members" asp-route-RecordID=@*"@Groups.groupID"*@>Se Medlemmer</a></td>
                     </tr>
                 </tbody>
             </table>
 
         }
-        else if (Model.pageName == "Leaders")
+        else if (Model.pageName == "Ledere")
         {
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Leader Name</th>
-                        <th>Assigned Groups</th>
+                        <th>Leder Navn</th>
+                        <th>Tildelte Grupper</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,8 +57,8 @@
         } 
         else 
         {
-            <p>The Page you're currently on has no linked data, please try another page</p>
-            <p>Return to <a href="AdminPanel">Home</a></p>
+            <p>Den side du har prøvet at nå, eksistere ikke.</p>
+            <p>Gå Tilbage til <a href="AdminPanel">Admin Panelet</a></p>
         }
     </div>
 </div>

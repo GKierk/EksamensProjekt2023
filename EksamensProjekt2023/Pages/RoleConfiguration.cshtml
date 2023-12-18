@@ -1,0 +1,39 @@
+﻿@page
+@model EksamensProjekt2023.Pages.RoleConfigurationModel
+@{
+    ViewData["Title"] = "Role Configuration";
+}
+
+<div class="container-fluid roleConfigurationContainer">
+    <h1 class="h1">Konfigurer Roller</h1>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td class="col">e-mail</td>
+                <td class="col">Konfigurer Roller</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.UserProfiles)
+            {
+                <tr>
+                    <td>
+                        @user.Email
+                    </td>
+                    <td>
+                        <select class="form-select" aria-label="Role Select Dropdown">
+                            <option selected>Choose a role...</option>
+                            <option value="1">Admin</option>
+                            <option value="2">Board member</option>
+                            <option value="3">Leader</option>
+                            <option value="4">Member</option>
+                            <option value="5">User</option>
+                        </select>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
