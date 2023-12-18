@@ -24,7 +24,8 @@ namespace EksamensProjekt2023.Pages
          */
         public void OnGet()
         {
-            foreach (var group in dbContext.Groups) {
+            foreach (var group in dbContext.Groups)
+            {
             groups.Add(group);
             }
         }
