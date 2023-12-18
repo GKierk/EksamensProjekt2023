@@ -43,21 +43,22 @@
                                     <li class="nav-item">
                                         <p class="mb-0 nav-link text-dark">Velkommen @user.FullName</p>
                                     </li>
-                                    <div class="dropdown">
-                                        <a class="nav-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sales</a>
-
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="/AdminPanel/ReadSale">Read Sales</a>
-                                            <li><a class="dropdown-item" href="/AdminPanel/createRecord">Create New Sale</a></li>
-                                            <li><a class="dropdown-item" href="/AdminPanel/UpdateSale">Update Sales</a>
-                                        </ul>
-                                    </div>
+                                    
                                     <li class="nav-item">
-                                        <a class="nav-link text-dark" href="/ListView?page=Groups">Groups </a>
+                                        <a class="nav-link text-dark" href="/ListView?page=Grupper">Grupper </a>
                                     </li>
                                     <li class="nav-item mb-sm-1">
-                                        <a class="nav-link text-dark" href="/ListView?page=Leaders">Leaders</a>
+                                        <a class="nav-link text-dark" href="/ListView?page=Ledere">Ledere</a>
                                     </li>
+                                    <div class="dropdown navDropdown">
+                                        <a class="nav-item btn btn-outline-primary text-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Salg</a>
+
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="/AdminPanel/ReadSale">Se Salgsdata</a>
+                                            <li><a class="dropdown-item" href="/AdminPanel/createRecord">Tilføj nye salg</a></li>
+                                            <li><a class="dropdown-item" href="/AdminPanel/UpdateSale">Opdater Salgsdata</a>
+                                        </ul>
+                                    </div>
                                     <li class="nav-item">
                                         <a asp-page="/User/Logout" class="btn btn-primary">Logout</a>
                                     </li>
