@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EksamensProjekt2023.Models;
 /// <summary>
@@ -14,4 +15,8 @@ namespace EksamensProjekt2023.Models;
 /// </summary>
 public class UserProfile : IdentityUser
 {
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+
+    public string FullName => FirstName + " " + LastName;
 }
