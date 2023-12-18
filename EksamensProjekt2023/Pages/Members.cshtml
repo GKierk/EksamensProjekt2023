@@ -4,12 +4,18 @@
     ViewData["Title"] = "Members list of " @*add the data for group name*@;
     
 }
+@*
+/// Date Created: 2023-12-14
+/// Date Edited: 2023-12-18
+/// Author: Lasse B. Hindsberg
+*@
 
 
 <div class="listViewContainer">
     <div class="listViewContent">
 @{
     /*Checks what the last page of the user was, if there isn't any "previous" page, it auto returns to "adminPanel"*/
+    /*This is very scuffed, I don't know if there's a better way of doing this*/
     string previousPage = Request.Headers["Referer"];
     string returnLink = previousPage?.ToString() ?? "/AdminPanel";
 }
@@ -18,6 +24,7 @@
         <a class="text-body-secondary link-info" href="@returnLink">Return to your previous page</a>
             <table class="table table-striped">
                 <thead >
+                    @*Placeholder data currently*@
                     <tr>
                         <th >Members</th>
                         <th >Sales</th>
