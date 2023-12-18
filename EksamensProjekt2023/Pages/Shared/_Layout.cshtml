@@ -1,6 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity;
 @using EksamensProjekt2023.Models;
 @inject SignInManager<UserProfile> SignInManager;
+@inject UserManager<UserProfile> UserManager;
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,42 +32,48 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/AdminPanel">Dashboard</a>
                         </li>
                     </ul>
-                    @{if(SignInManager.IsSignedIn(User))
+                    @{
+                        if(SignInManager.IsSignedIn(User))
                         {
-                            <ul class="navbar-nav justify-content-end flex-grow-1">
-                                <li class="nav-item">
-                                    <p class="mb-0 nav-link text-dark">Welcome Admin@*{data.UserloggedIn}*@</p>
-                                </li>
-                                <div class="dropdown">
-                                    <a class="nav-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sales</a>
+                            var user = await UserManager.GetUserAsync(User);
 
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="/AdminPanel/ReadSale">Read Sales</a>
-                                        <li><a class="dropdown-item" href="/AdminPanel/createRecord">Create New Sale</a></li>
-                                        <li><a class="dropdown-item" href="/AdminPanel/UpdateSale">Update Sales</a>
-                                    </ul>
-                                </div>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" href="/ListView?page=Groups">Groups </a>
-                                </li>
-                                <li class="nav-item mb-sm-1">
-                                    <a class="nav-link text-dark" href="/ListView?page=Leaders">Leaders</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a asp-page="/User/Logout" class="btn btn-primary">Logout</a>
-                                </li>
-                            </ul>
-                        }
-                        else
-                        {
-                            <ul class="navbar-nav justify-content-end flex-grow-1">
-                                <li class="nav-item"> 
-                                    <a asp-page="/User/login" class="btn btn-primary">Login</a>
-                                </li>
-                                <li>
-                                    <a asp-page="/User/Register" class="btn">Register</a>
-                                </li>
-                            </ul>
+                            if (user != null)
+                            {
+                                <ul class="navbar-nav justify-content-end flex-grow-1">
+                                    <li class="nav-item">
+                                        <p class="mb-0 nav-link text-dark">Velkommen @user.FullName</p>
+                                    </li>
+                                    <div class="dropdown">
+                                        <a class="nav-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sales</a>
+
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="/AdminPanel/ReadSale">Read Sales</a>
+                                            <li><a class="dropdown-item" href="/AdminPanel/createRecord">Create New Sale</a></li>
+                                            <li><a class="dropdown-item" href="/AdminPanel/UpdateSale">Update Sales</a>
+                                        </ul>
+                                    </div>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" href="/ListView?page=Groups">Groups </a>
+                                    </li>
+                                    <li class="nav-item mb-sm-1">
+                                        <a class="nav-link text-dark" href="/ListView?page=Leaders">Leaders</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-page="/User/Logout" class="btn btn-primary">Logout</a>
+                                    </li>
+                                </ul>
+                            }
+                            else
+                            {
+                                <ul class="navbar-nav justify-content-end flex-grow-1">
+                                    <li class="nav-item">
+                                        <a asp-page="/User/login" class="btn btn-primary">Login</a>
+                                    </li>
+                                    <li>
+                                        <a asp-page="/User/Register" class="btn">Register</a>
+                                    </li>
+                                </ul>
+                            }
                         }
                     }
                     
