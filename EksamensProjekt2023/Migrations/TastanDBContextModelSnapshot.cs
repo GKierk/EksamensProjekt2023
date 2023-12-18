@@ -42,6 +42,19 @@ namespace EksamensProjekt2023.Migrations
                     b.ToTable("Groups");
                 });
 
+            modelBuilder.Entity("EksamensProjekt2023.Models.GroupMember", b =>
+                {
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("GroupName")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("FullName", "GroupName");
+
+                    b.ToTable("GroupMembers");
+                });
+
             modelBuilder.Entity("EksamensProjekt2023.Models.Record", b =>
                 {
                     b.Property<string>("RecordID")
@@ -87,6 +100,14 @@ namespace EksamensProjekt2023.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -283,11 +304,6 @@ namespace EksamensProjekt2023.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityRole");
 
-                    b.Property<string>("UserProfileId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasIndex("UserProfileId");
-
                     b.HasDiscriminator().HasValue("Role");
                 });
 
@@ -360,15 +376,6 @@ namespace EksamensProjekt2023.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("EksamensProjekt2023.Models.Role", b =>
-                {
-                    b.HasOne("EksamensProjekt2023.Models.UserProfile", "UserProfile")
-                        .WithMany()
-                        .HasForeignKey("UserProfileId");
-
-                    b.Navigation("UserProfile");
                 });
 #pragma warning restore 612, 618
         }

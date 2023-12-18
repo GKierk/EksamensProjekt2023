@@ -32,5 +32,7 @@ public class Group
     public string GroupName { get; set; }
 
     [ForeignKey("GroupLeaderId")]
+    public string GroupLeaderId { get; set; }
+
     public virtual UserProfile GroupLeader { get; set; }
 }

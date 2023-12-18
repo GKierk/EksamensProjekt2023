@@ -10,6 +10,4 @@ namespace EksamensProjekt2023.Models;
 /// </summary>
 public class Role : IdentityRole
 {
-    [ForeignKey("Id")]
-    public virtual UserProfile UserProfile { get; set; }
 }

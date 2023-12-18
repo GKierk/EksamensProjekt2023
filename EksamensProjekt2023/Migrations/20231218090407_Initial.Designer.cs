@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EksamensProjekt2023.Migrations
 {
     [DbContext(typeof(TastanDBContext))]
-    [Migration("20231217131743_Groups")]
-    partial class Groups
+    [Migration("20231218090407_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,6 +43,19 @@ namespace EksamensProjekt2023.Migrations
                     b.HasIndex("GroupLeaderId");
 
                     b.ToTable("Groups");
+                });
+
+            modelBuilder.Entity("EksamensProjekt2023.Models.GroupMember", b =>
+                {
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("GroupName")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("FullName", "GroupName");
+
+                    b.ToTable("GroupMembers");
                 });
 
             modelBuilder.Entity("EksamensProjekt2023.Models.Record", b =>
@@ -91,8 +104,13 @@ namespace EksamensProjekt2023.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("GroupId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -128,8 +146,6 @@ namespace EksamensProjekt2023.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("GroupId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -291,11 +307,6 @@ namespace EksamensProjekt2023.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityRole");
 
-                    b.Property<string>("UserProfileId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasIndex("UserProfileId");
-
                     b.HasDiscriminator().HasValue("Role");
                 });
 
@@ -317,13 +328,6 @@ namespace EksamensProjekt2023.Migrations
                         .HasForeignKey("Id");
 
                     b.Navigation("UserProfile");
-                });
-
-            modelBuilder.Entity("EksamensProjekt2023.Models.UserProfile", b =>
-                {
-                    b.HasOne("EksamensProjekt2023.Models.Group", null)
-                        .WithMany("Members")
-                        .HasForeignKey("GroupId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -375,20 +379,6 @@ namespace EksamensProjekt2023.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("EksamensProjekt2023.Models.Role", b =>
-                {
-                    b.HasOne("EksamensProjekt2023.Models.UserProfile", "UserProfile")
-                        .WithMany()
-                        .HasForeignKey("UserProfileId");
-
-                    b.Navigation("UserProfile");
-                });
-
-            modelBuilder.Entity("EksamensProjekt2023.Models.Group", b =>
-                {
-                    b.Navigation("Members");
                 });
 #pragma warning restore 612, 618
         }
