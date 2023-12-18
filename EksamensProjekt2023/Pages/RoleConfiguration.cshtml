@@ -15,25 +15,21 @@
             </tr>
         </thead>
         <tbody>
-            @*foreach (var user in Model.UserProfiles)*@
+            @foreach (var user in Model.UserProfiles)
             {
                 <tr>
                     <td>
-                        user.Email
+                        @user.Email
                     </td>
                     <td>
-                        <div class="btn-group" role="group">
-                            <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
-                                Roles...
-                            </button>
-                            <ul class="dropdown-menu">
-                                @*Assign the role to the given @user.email when clicked*@
-                                <a class="dropdown-item btn btn-primary" >Admin</a>
-                                <a class="dropdown-item btn btn-primary" >Leader</a>
-                                <a class="dropdown-item btn btn-primary">Member</a>
-                                <a class="dropdown-item btn btn-primary">User</a>
-                            </ul>
-                        </div>
+                        <select class="form-select" aria-label="Role Select Dropdown">
+                            <option selected>Choose a role...</option>
+                            <option value="1">Admin</option>
+                            <option value="2">Board member</option>
+                            <option value="3">Leader</option>
+                            <option value="4">Member</option>
+                            <option value="5">User</option>
+                        </select>
                     </td>
                 </tr>
             }
