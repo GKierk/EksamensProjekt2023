@@ -13,6 +13,16 @@
 
                 </div>
                 <div class="mb-3">
+                    <label class="form-label" asp-for="@Model.Register.FirstName">Fornavn</label>
+                    <input type="text" asp-for="@Model.Register.FirstName" class="form-control" />
+                    <span asp-validation-for="@Model.Register.FirstName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="@Model.Register.LastName">Efternavn</label>
+                    <input type="text" asp-for="@Model.Register.LastName" class="form-control" />
+                    <span asp-validation-for="@Model.Register.LastName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
                     <label class="form-label" asp-for="@Model.Register.Email">Email Address</label>
                     <input type="text" asp-for="@Model.Register.Email" class="form-control" />
                     <span asp-validation-for="@Model.Register.Email" class="text-danger"></span>
