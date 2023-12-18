@@ -17,6 +17,11 @@ namespace EksamensProjekt2023.Pages
         [BindProperty]
         public List<Group> groups { get; set; } = new List<Group>();
 
+        /* somehow insert Leader list in here and make it do the same as the groups
+         * 
+         * 
+         * 
+         */
         public void OnGet()
         {
             foreach (var group in dbContext.Groups) {
