@@ -1,6 +1,4 @@
 using EksamensProjekt2023.Models;
-using EksamensProjekt2023.Services.EFService;
-using EksamensProjekt2023.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -39,9 +37,6 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.AccessDeniedPath = "/Identity/Account/AccessDenied";
     options.SlidingExpiration = true;
 });
-
-builder.Services.AddTransient<IUserService, EFUserService>();
-
 
 builder.Services.AddRazorPages();
 
