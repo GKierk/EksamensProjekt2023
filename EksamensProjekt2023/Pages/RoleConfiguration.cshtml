@@ -1,0 +1,43 @@
+﻿@page
+@model EksamensProjekt2023.Pages.RoleConfigurationModel
+@{
+    ViewData["Title"] = "Role Configuration";
+}
+
+<div class="container-fluid roleConfigurationContainer">
+    <h1 class="h1">Configure roles</h1>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td class="col">e-mail</td>
+                <td class="col">Configure roles</td>
+            </tr>
+        </thead>
+        <tbody>
+            @*foreach (var user in Model.UserProfiles)*@
+            {
+                <tr>
+                    <td>
+                        user.Email
+                    </td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                                Roles...
+                            </button>
+                            <ul class="dropdown-menu">
+                                @*Assign the role to the given @user.email when clicked*@
+                                <a class="dropdown-item btn btn-primary" >Admin</a>
+                                <a class="dropdown-item btn btn-primary" >Leader</a>
+                                <a class="dropdown-item btn btn-primary">Member</a>
+                                <a class="dropdown-item btn btn-primary">User</a>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
