@@ -1,7 +1,12 @@
 ﻿@page
-@model IndexModel
+@model IndexModel;
+@*
+    Where go ?
+ @inject SignInManager<UserProfile> SignInManager; 
+*@
 @{
     ViewData["Title"] = "Home page";
+    
 }
 @*Make this shit fill entire page, and center the content in the middle, don't have access to internet at the time of writing so cant check bootstrap documentation :(*@
 <div class="container-fluid text-center">
@@ -9,10 +14,22 @@
         <h1 class="display-1 text-black">Lodseddelssalgsystem &middot; FDF K19</h1>
         <small>Eksamensopgave 2023 Udarbejdet af Gabriel Kierkegaard, Mohammad Gado, Muhammed Tastan, Henrik Seindahl & Lasse Hindsberg &middot; Zealand Roskilde </small>
     </div>
-    <div>
-        <a asp-page="/User/login" class="btn btn-link">Login as existing user</a>
-        <a asp-page="/User/Register" class="btn btn-link">Create a new account</a>
-    </div>
+    @*
+        LOOK AT THIS PART 
+    @{
+        if(SignInManager.IsSignedIn(User))
+        {
+            <a asp-page="/User/Logout" class="btn btn-primary">Logout</a>
+        }
+        else
+            {
+            <div>
+                <a asp-page="/User/login" class="btn btn-link">Login as existing user</a>
+                <a asp-page="/User/Register" class="btn btn-link">Create a new account</a>
+            </div>
+                
+            }
+    *@
     <div class="col-3 m-auto mt-5 pt-5">
     <img class="img-fluid" src="~/img/FDFLogo.png" alt="FDF Logo af Kreds 19"/>
     </div>
