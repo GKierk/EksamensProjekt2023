@@ -1,4 +1,5 @@
 using EksamensProjekt2023.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -9,8 +10,10 @@ namespace EksamensProjekt2023.Pages.AdminPanel;
 /// <br />
 /// 
 /// </summary>
+[Authorize(Roles = "Admin")]
 public class ReadSaleModel : PageModel
 {
+
     private TastanDBContext dBContext;
 
     public ReadSaleModel(TastanDBContext context)

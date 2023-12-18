@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using EksamensProjekt2023.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EksamensProjekt2023.Pages.AdminPanel;
 
@@ -10,6 +11,7 @@ namespace EksamensProjekt2023.Pages.AdminPanel;
 /// <br />
 /// 
 /// </summary>
+[Authorize(Roles = ("Admin"))]
 public class CreateRecordModel : PageModel
 {
     private TastanDBContext dBContext;
