@@ -2,7 +2,6 @@ using EksamensProjekt2023.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.ComponentModel.DataAnnotations;
 
 namespace EksamensProjekt2023.Pages.User;
 /// <summary>
@@ -24,7 +23,7 @@ public class RegisterModel : PageModel
     }
 
     [BindProperty]
-    public Register register { get; set; }
+    public Register Register { get; set; }
 
     public void OnGet()
     {
@@ -36,15 +35,16 @@ public class RegisterModel : PageModel
         {
             var userProfile = new UserProfile()
             {
-                UserName = register.Email,
-                Email = register.Email,
+                UserName = Register.Email,
+                Email = Register.Email,
             };
 
 
-            var result = await userManager.CreateAsync(userProfile, register.Password);
+            var result = await userManager.CreateAsync(userProfile, Register.Password);
             if (result.Succeeded)
             {
                 await signInManager.SignInAsync(userProfile, false);
+                await userManager.AddToRoleAsync(userProfile, "Member");
                 return RedirectToPage("/Index");
             }
 
