@@ -32,7 +32,7 @@
                         <td> @item.GroupName</td>
                         <td> @item.LeaderName</td>
                         *@
-                        <td><a class="dropdown-item btn btn-primary" asp-page="/members" asp-route-RecordID=@*"@Groups.groupID"*@>Se Medlemmer</a></td>
+                         <td><a class="dropdown-item btn btn-primary" asp-page="/members" asp-route-GroupName="@Model.Group.GroupName">Se Medlemmer</a></td>
                     </tr>
                 </tbody>
             </table>
