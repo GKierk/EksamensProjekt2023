@@ -20,14 +20,14 @@
     string returnLink = previousPage?.ToString() ?? "/AdminPanel";
 }
         @*Turn this into group name, or like. group id or something :)*@
-        <h1 class="h1"> @Model.pageName  &middot; Members: </h1>
-        <a class="text-body-secondary link-info" href="@returnLink">Return to your previous page</a>
+        <h1 class="h1"> @Model.pageName  &middot; Medlemmer: </h1>
+        <a class="text-body-secondary link-info" href="@returnLink">Gå Tilbage</a>
             <table class="table table-striped">
                 <thead >
                     @*Placeholder data currently*@
                     <tr>
-                        <th >Members</th>
-                        <th >Sales</th>
+                        <th >Medlem</th>
+                        <th >antal Salg</th>
 
                     </tr>
                 </thead>

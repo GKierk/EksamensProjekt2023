@@ -23,8 +23,8 @@
     *@
     <div class="container-sm mx-auto">
         <h1 class="h1">Dashboard</h1>
-        <h4 class="h4">Current Sales</h4>
-        <h6 class="h6">sold Raffle Tickets: 4400@*{@data.SoldTickets}*@</h6>
+        <h4 class="h4">Nuværende Salg</h4>
+        <h6 class="h6">Solgte Lodsedler: 4400@*{@data.SoldTickets}*@</h6>
             <div>
             <svg class="dataGraph" xmlns="http://www.w3.org/2000/svg" width="1369.414" height="259.414" viewBox="0 0 1369.414 259.414">
                 <g id="Group_5" data-name="Group 5" transform="translate(-231.793 -450.793)">
@@ -45,18 +45,18 @@
         </div>
 
         <div class="container-sm">
-            <h3 class="h3 text-dark">Active Groups</h3>
+            <h3 class="h3 text-dark">Aktive Grupper</h3>
             <div class="btn-group" role="group">
-                <button class="btn btn-outline-primary"><a href="listview?page=Groups">See All Groups</a></button>
+                <button class="btn btn-outline-primary"><a href="listview?page=Grupper">Se Alle Grupper</a></button>
                 <div class="btn-group" role="group">
                     <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
-                        Edit Data
+                        Rediger...
                     </button>
 
                     <ul class="dropdown-menu px-0 py-0 mx-0 my-0">
-                <a asp-page="/Groups/CreateGroup" class=" btn dropdown-item bg-success">Create New Group</a>
-                <a asp-page="/Groups/UpdateGroup" class="btn dropdown-item bg-info">Update a Group</a>
-                <a asp-page="/Groups/DeleteGroup" class="dropdown-item bg-danger">Delete a Group</a>
+                <a asp-page="/Groups/CreateGroup" class=" btn dropdown-item bg-success">Tilføj Ny Gruppe</a>
+                <a asp-page="/Groups/UpdateGroup" class="btn dropdown-item bg-info">Opdater Gruppe</a>
+                <a asp-page="/Groups/DeleteGroup" class="dropdown-item bg-danger">Slet Gruppe</a>
                     </ul>
                 </div>
             </div>
@@ -69,16 +69,16 @@
         </div>
 
         <div class="container-sm">
-            <h3 class="h3 text-dark">Active Leaders</h3>
+            <h3 class="h3 text-dark">Aktive Ledere</h3>
             <div class="btn-group" role="group">
-                <button class="btn btn-outline-primary"><a href="listview?page=Leaders">See All Leaders</a></button>
+                <button class="btn btn-outline-primary"><a href="listview?page=Leaders">Se Alle Ledere</a></button>
                 <div class="btn-group" role="group">
-                    <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown"> Edit Leaders</button>
+                    <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown"> Rediger...</button>
 
                     <ul class="dropdown-menu px-0 py-0 mx-0 my-0">
-                        <a asp-page="/Leaders/CreateLeader" class="dropdown-item bg-success">Create New Leader</a>
-                        <a asp-page="/Leaders/UpdateLeader" class="dropdown-item bg-info">Update a Leader</a>
-                        <a asp-page="/Leaders/DeleteLeader" class="dropdown-item bg-danger">Delete a Leader</a>
+                        <a asp-page="/Leaders/CreateLeader" class="dropdown-item bg-success">Tilføj Ny Leder</a>
+                        <a asp-page="/Leaders/UpdateLeader" class="dropdown-item bg-info">Opdater en Leder</a>
+                        <a asp-page="/Leaders/DeleteLeader" class="dropdown-item bg-danger">Slet en Leder</a>
                     </ul>
                 </div>
             </div>
