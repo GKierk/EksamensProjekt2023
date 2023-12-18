@@ -1,8 +1,13 @@
 ﻿@page
 @model EksamensProjekt2023.Pages.ListViewModel
 @{
-    ViewData["Title"] = "Administrator Dashboard";
+    ViewData["Title"] = "List of " + Model.pageName;
 }
+@*
+/// Date Created: 2023-12-07
+/// Date Edited: 2023-12-18
+/// Author: Lasse B. Hindsberg
+*@
 
 <div class="listViewContainer">
     <div class="listViewContent">
@@ -14,18 +19,20 @@
             <table class="table table-striped">
                 <thead >
                     <tr>
-                        <th >ID</th>
                         <th >Group Name</th>
                         <th >Leader Name</th>
                         <th >Members</th>
+
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="align-center">
                     <tr>
-                        <td>@* @item.ID *@</td>
-                        <td>@* @item.GroupName*@</td>
-                        <td>@* @item.LeaderName*@</td>
-                        <td>@*a foreach function that makes a list from the array Members*@</td>
+                        @*
+
+                        <td> @item.GroupName</td>
+                        <td> @item.LeaderName</td>
+                        *@
+                        <td><a class="dropdown-item btn btn-primary" asp-page="/members" asp-route-RecordID=@*"@Groups.groupID"*@>View Members</a></td>
                     </tr>
                 </tbody>
             </table>
@@ -36,14 +43,12 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Leader Name</th>
                         <th>Assigned Groups</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>@* @item.ID *@</td>
                         <td>@* @item.LeaderName*@</td>
                         <td>@* a foreach function for list of @item.Groups*@</td>
                     </tr>
