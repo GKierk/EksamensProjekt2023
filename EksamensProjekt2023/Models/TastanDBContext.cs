@@ -6,14 +6,15 @@ namespace EksamensProjekt2023.Models
 {
     public class TastanDBContext : IdentityDbContext<UserProfile>
     {
-        public TastanDBContext(DbContextOptions<TastanDBContext> options) : base(options) 
+        public TastanDBContext(DbContextOptions<TastanDBContext> options) : base(options)
         {
-            
+
         }
 
         public DbSet<UserProfile> UserProfiles { get; set; }
+        public new DbSet<Role> Roles { get; set; }
         public DbSet<Record> Records { get; set; }
         public DbSet<Group> Groups { get; set; }
-        public new DbSet<Role> Roles {  get; set; }
+        public DbSet<GroupMember> GroupMembers { get; set; }
     }
 }
