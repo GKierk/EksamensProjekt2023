@@ -1,5 +1,4 @@
 using EksamensProjekt2023.Models;
-using EksamensProjekt2023.Models.Roles;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -27,10 +26,10 @@ namespace EksamensProjekt2023.Pages
         [BindProperty]
         // makes group into a list to be used in forEach
         public List<Group> Groups { get; set; } = new List<Group>();
-        [BindProperty]
+        //[BindProperty]
         // repeated with Leader
-        public Leader Leader { get; set; }
-        public List<Leader> Leaders { get; set; } = new List<Leader>();
+        //public Leader Leader { get; set; }
+        //public List<Leader> Leaders { get; set; } = new List<Leader>();
         public void OnGet()
         {
             // detects page from the URL parameters
