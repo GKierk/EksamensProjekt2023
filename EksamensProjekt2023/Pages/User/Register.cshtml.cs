@@ -35,6 +35,8 @@ public class RegisterModel : PageModel
         {
             var userProfile = new UserProfile()
             {
+                FirstName = Register.FirstName,
+                LastName = Register.LastName,
                 UserName = Register.Email,
                 Email = Register.Email,
             };
