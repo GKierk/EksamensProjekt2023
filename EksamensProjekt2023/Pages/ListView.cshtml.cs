@@ -1,3 +1,4 @@
+/*
 using EksamensProjekt2023.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -33,21 +34,25 @@ namespace EksamensProjekt2023.Pages
         public void OnGet()
         {
             // detects page from the URL parameters
-            pageName = Request.Query["Page"];
+            
 
             // Loops over data in database to be printed in the tables on the page
 
             /// REMEMBER TO REMOVE THE COMMENT FROM THIS PART
-/*            foreach (var group in dBContext.Groups)
+         foreach (var group in dBContext.Groups)
             {
                 Groups.Add(group);
             }
-            // repeat with Leader
-            foreach (var leader in dBContext.Leaders)
-            {
-                Leaders.Add(leader);
-            }
-*/
+            
+               // repeat with Leader
+               foreach (var leader in dBContext.Leaders)
+               {
+                   Leaders.Add(leader);
+               }
+   
+            pageName = Request.Query["Page"];
         }
     }
 }
+
+*/
