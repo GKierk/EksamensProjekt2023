@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace EksamensProjekt2023.Pages.Groups
 /// <summary>
@@ -19,7 +20,21 @@ namespace EksamensProjekt2023.Pages.Groups
         public ReadGroupModel(TastanDBContext context)
         {
             dBContext = context;
+
+            var userRoles = dBContext.UserRoles.ToList();
+            var usersInDb = dBContext.UserProfiles.ToList();
+            var roles = dBContext.Roles.ToList();
             
+            foreach (var user in usersInDb)
+            {
+                foreach (var userRole in userRoles)
+                {
+                    if (userRole.UserId == user.Id)
+                    {
+                        UserProfiles.Add(user);
+                    }
+                }
+            }
         }
 
         [BindProperty]
@@ -30,9 +45,6 @@ namespace EksamensProjekt2023.Pages.Groups
 
         [BindProperty]
         public List<GroupMember> GroupMembers { get; set; } = new List<GroupMember>();
-
-        [BindProperty]
-        public List<Role> UserRoles { get; set; }
 
         public void OnGet()
         {
