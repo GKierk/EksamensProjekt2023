@@ -4,7 +4,6 @@
 }
 <p></p>
 <div>
-    <form method="get">
         <a class="btn btn-primary" asp-page="/Groups/CreateGroup">Opret Gruppe</a>
         <table class="table table-striped">
             <thead>
@@ -28,13 +27,13 @@
                                     <ul class="dropdown-menu">
                                         @foreach (var user in Model.UserProfiles)
                                         {
-                                            <button type="button" class="dropdown-item btn btn-primary" value="@user" asp-page-handler="OnPostSelectLeader" asp-route-user="@user"/>
+                                            <a class="dropdown-item btn btn-primary" asp-page="/Groups/AssignLeader" asp-route-userId="@user.Id" asp-route-groupId="@group.Id">@user.FullName</a>
                                         }
                                     </ul>
                                 </div>
                             } else
                             {
-                               @group.GroupLeader
+                               @group.GroupLeader.FullName
                             }
                         </td>
                         @foreach (var member in Model.GroupMembers)
@@ -59,5 +58,4 @@
                 </tbody>
             }
         </table>
-    </form>
 </div>
