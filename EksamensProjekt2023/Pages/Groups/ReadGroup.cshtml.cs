@@ -17,7 +17,7 @@ namespace EksamensProjekt2023.Pages.Groups
     {
         private TastanDBContext dBContext;
 
-        public ReadGroupModel(TastanDBContext context, UserManager<UserProfile> userManager)
+        public ReadGroupModel(TastanDBContext context)
         {
             dBContext = context;
 

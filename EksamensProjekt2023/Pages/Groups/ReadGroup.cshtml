@@ -4,6 +4,7 @@
 }
 <p></p>
 <div>
+    <form method="get">
         <a class="btn btn-primary" asp-page="/Groups/CreateGroup">Opret Gruppe</a>
         <table class="table table-striped">
             <thead>
@@ -36,26 +37,33 @@
                                @group.GroupLeader.FullName
                             }
                         </td>
-                        @foreach (var member in Model.GroupMembers)
-                        {
-                            if (member.GroupName == group.GroupName)
-                            {
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Medlem</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                        <td>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Medlemmer</th>
+                                        <th> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
                                         <td>
-                                            @member.FullName
+                                            @foreach (var member in Model.GroupMembers)
+                                            {
+                                                if(member.Group.GroupName == group.GroupName)
+                                                {
+                                                    @member.UserProfile.FullName
+                                                }
+                                            }
                                         </td>
-                                    </tbody>
-                                </table>
-                            }
-                        }
+                                        <td><a class="btn btn-primary" asp-page="/Groups/AssignMembers" asp-route-groupId="@group.Id">Tildel Gruppe Medlemmer</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
                     </tr>
                 </tbody>
             }
         </table>
+    </form>
 </div>
