@@ -2,8 +2,8 @@
 @model EksamensProjekt2023.Pages.Groups.AssignMembersModel
 @{
 }
-<div>
-    <form method="post">
+<div class="form-control">
+    <form method="post" asp-page-handler="OnPost">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -12,15 +12,16 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var member in Model.AssignMembers)
-                {
-                    <tr>
-                        <td><label asp-for="@member.UserProfile.FullName">@member.UserProfile.FullName</label></td>
-                        <td><input type="checkbox" asp-for="@member.IsMember" /></td> 
-                    </tr>
-                }
+            @foreach (var member in Model.AssignMembers)
+            {
+                <tr>
+                    <td><label class="form-label">@member.UserProfile.FullName</label></td>
+                    <td><input type="checkbox" asp-for="@member.IsMember" /></td>
+                </tr>
+            }
             </tbody>
         </table>
-        <input type="submit" class="btn btn-primary" value="Tildel Brugere" />
+        <button type="submit" class="btn btn-primary" >Tildel Brugere</button>
     </form>
 </div>
+<p>(@Model.AssignMembers.Count)</p>
