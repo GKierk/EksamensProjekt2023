@@ -20,7 +20,6 @@ namespace EksamensProjekt2023.Pages.Groups
         public ReadGroupModel(TastanDBContext context, UserManager<UserProfile> userManager)
         {
             dBContext = context;
-            this.userManager = userManager;
 
             var userRoles = dBContext.UserRoles.ToList();
             var usersInDb = dBContext.UserProfiles.ToList();
