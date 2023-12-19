@@ -1,4 +1,6 @@
-﻿@page
+﻿@*
+
+@page
 @model EksamensProjekt2023.Pages.ListViewModel
 @{
     ViewData["Title"] = "List of " + Model.pageName;
@@ -7,13 +9,12 @@
 /// Date Created: 2023-12-07
 /// Date Edited: 2023-12-18
 /// Author: Lasse B. Hindsberg
-*@
+
 
 <div class="listViewContainer">
     <div class="listViewContent">
         <h1> @Model.pageName </h1>
         <a class="text-body-secondary link-info" href="AdminPanel">Gå Tilbage til AdminPanelet</a>
-        @* Checks what page the URL has listed to and gives content based on the page *@
         @if (Model.pageName == "Grupper")
         {
             <table class="table table-striped">
@@ -26,7 +27,7 @@
                 </thead>
                 <tbody class="align-center">
                     <tr>
-                        <td> @Model.Group.GroupName</td>
+                        <td> @Model.Group.GroupName </td>
                         <td> @Model.Group.GroupLeader</td>
                         <td><a class="dropdown-item btn btn-primary" asp-page="/members" asp-route-GroupName="@Model.Group.GroupName">Se Medlemmer</a></td>
                     </tr>
@@ -45,8 +46,8 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>@* @item.LeaderName*@</td>
-                        <td>@* a foreach function for list of @item.Groups*@</td>
+                        <td>@item.LeaderName</td>
+                        <td>a foreach function for list of @item.Groups</td>
                     </tr>
                 </tbody>
             </table>
@@ -58,3 +59,4 @@
         }
     </div>
 </div>
+*@
