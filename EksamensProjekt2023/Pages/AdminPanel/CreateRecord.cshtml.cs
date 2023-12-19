@@ -25,6 +25,8 @@ public class CreateRecordModel : PageModel
     [BindProperty]
     public Record Record { get; set; }
 
+    public int Year { get; set; }
+
     public void OnGet(string Id)
     {
         UserProfile userProfile = dBContext.UserProfiles.Find(Id);

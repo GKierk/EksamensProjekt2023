@@ -6,7 +6,20 @@
 <div>
     <form method="post">
         <div>
-            <button type="submit" class="btn btn-primary">Opret Salgs Oversigt</button>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Årstal</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="number" asp-for="Year" /></td>
+                        <td><button type="submit" class="btn btn-primary">Opret Salgs Oversigt</button></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </form>
 </div>
