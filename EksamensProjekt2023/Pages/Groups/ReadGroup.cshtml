@@ -1,6 +1,63 @@
-﻿@* @page
+﻿@page
 @model EksamensProjekt2023.Pages.Groups.ReadGroupModel
 @{
-    ViewData["Title"] = "All Groups";
 }
- *@
+
+<div>
+    <form method="get">
+        <a class="btn btn-primary" asp-page="/Groups/CreateGroup">Opret Gruppe</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Gruppe Navn</th>
+                    <th>Gruppe Leder</th>
+                    <th>Gruppe Medlemmer</th>
+                </tr>
+            </thead>
+            @foreach (var group in Model.Groups)
+            {
+                <tbody>
+                    <tr>
+                        <td>@group.GroupName</td>
+                        <td>@if (group.GroupLeader == null)
+                            {
+                                <div class="btn-group" role="group">
+                                    <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                                        Vælg Leder
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        @foreach (var user in Model.UserProfiles)
+                                        {
+                                            <input type="button" class="dropdown-item btn btn-primary" value="@Model.User" />
+                                        }
+                                    </ul>
+                                </div>
+                            } else
+                            {
+                               @group.GroupLeader
+                            }
+                        </td>
+                        @foreach (var member in Model.GroupMembers)
+                        {
+                            if (member.GroupName == group.GroupName)
+                            {
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Medlem</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <td>
+                                            @member.FullName
+                                        </td>
+                                    </tbody>
+                                </table>
+                            }
+                        }
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </form>
+</div>

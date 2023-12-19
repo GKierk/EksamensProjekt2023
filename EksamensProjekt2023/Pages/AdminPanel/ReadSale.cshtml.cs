@@ -35,15 +35,8 @@ public class ReadSaleModel : PageModel
 
     public void OnGet()
     {
-        foreach (var user in dBContext.UserProfiles)
-        {
-            UserProfiles.Add(user);
-        }
-
-        foreach (var record in dBContext.Records)
-        {
-            Records.Add(record);
-        }
+        UserProfiles = dBContext.UserProfiles.ToList();
+        Records = dBContext.Records.ToList();
     }
 
     public void OnPostUpdate()

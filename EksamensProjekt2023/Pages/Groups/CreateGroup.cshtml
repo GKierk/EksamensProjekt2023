@@ -1,6 +1,25 @@
-﻿@* @page
+﻿@page
 @model EksamensProjekt2023.Pages.Groups.CreateGroupModel
 @{
-    ViewData["Title"] = "Create Group";
 }
- *@
+
+
+ <div>
+     <form method="post">
+         <table>
+             <thead>
+                 <tr>
+                     <th>Gruppe Navn</th>
+                     <th></th>
+                 </tr>
+             </thead>
+             <tbody>
+                 <tr>
+                    <td><input type="text" asp-for="@Model.Group.GroupName" /></td>
+                    <td><input type="submit" class="btn btn-primary" value="Opret Gruppe" /></td>
+                 </tr>
+             </tbody>
+         </table>
+         <span asp-validation-for="@Model.Group.GroupName"></span>
+     </form>
+ </div>

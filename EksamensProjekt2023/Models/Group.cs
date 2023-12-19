@@ -19,20 +19,19 @@ public class Group
         GroupName = string.Empty;
     }
 
-    public Group(string groupName, UserProfile groupLeader)
+    public Group(string groupName) : this()
     {
-        Id = Guid.NewGuid().ToString();
         GroupName = groupName;
-        GroupLeader = groupLeader;
     }
 
     [Key]
     public string Id { get; set; }
 
+    [Required(ErrorMessage = "Gruppe navn er nødvendigt")]
     public string GroupName { get; set; }
 
     [ForeignKey("GroupLeaderId")]
-    public string GroupLeaderId { get; set; }
+    public string? GroupLeaderId { get; set; }
 
-    public virtual UserProfile GroupLeader { get; set; }
+    public virtual UserProfile? GroupLeader { get; set; }
 }
