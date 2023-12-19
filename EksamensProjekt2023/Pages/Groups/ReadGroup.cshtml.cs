@@ -54,10 +54,5 @@ namespace EksamensProjekt2023.Pages.Groups
             Groups = dBContext.Groups.ToList();
             GroupMembers = dBContext.GroupMembers.ToList();
         }
-
-        public async Task OnPostSelectLeader(UserProfile user)
-        {
-            await userManager.AddToRoleAsync(user, "Leader");
-        }
     }
 }
