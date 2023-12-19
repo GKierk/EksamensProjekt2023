@@ -19,9 +19,10 @@ namespace EksamensProjekt2023.Pages.Groups
         private UserManager<UserProfile> userManager;
         private RoleManager<IdentityRole> roleManager;
 
-        public ReadGroupModel(TastanDBContext context)
+        public ReadGroupModel(TastanDBContext context, UserManager<UserProfile> userManager)
         {
             dBContext = context;
+            this.userManager = userManager;
 
             var userRoles = dBContext.UserRoles.ToList();
             var usersInDb = dBContext.UserProfiles.ToList();
@@ -54,9 +55,9 @@ namespace EksamensProjekt2023.Pages.Groups
             GroupMembers = dBContext.GroupMembers.ToList();
         }
 
-        public void OnPostSelectLeader()
+        public async Task OnPostSelectLeader(UserProfile user)
         {
-
+            await userManager.AddToRoleAsync(user, "Leader");
         }
     }
 }
