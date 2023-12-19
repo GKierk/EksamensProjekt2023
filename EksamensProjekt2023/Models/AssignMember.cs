@@ -2,6 +2,8 @@
 
 public class AssignMember
 {
+    public AssignMember() { }
+
     public AssignMember(UserProfile userProfile)
     {
         UserProfile = userProfile;
