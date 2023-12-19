@@ -12,16 +12,19 @@
             <tr>
                 <td class="col">e-mail</td>
                 <td class="col">Konfigurer Roller</td>
+                <td class="col"></td>
             </tr>
         </thead>
         <tbody>
             @foreach (var user in Model.UserProfiles)
             {
                 <tr>
+                        <form method="post">
                     <td>
                         @user.Email
                     </td>
                     <td>
+
                         <select class="form-select" aria-label="Role Select Dropdown">
                             <option selected>Choose a role...</option>
                             <option value="1">Admin</option>
@@ -31,6 +34,11 @@
                             <option value="5">User</option>
                         </select>
                     </td>
+
+                    <td>
+                        <button class="btn-sm btn-primary "type="submit">Vælg Role</button>
+                    </td>
+                        </form>
                 </tr>
             }
         </tbody>
