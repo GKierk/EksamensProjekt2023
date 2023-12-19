@@ -17,7 +17,7 @@ namespace EksamensProjekt2023.Pages.Groups
     {
         private TastanDBContext dBContext;
         private UserManager<UserProfile> userManager;
-        private RoleManager<Role> roleManager;
+        private RoleManager<IdentityRole> roleManager;
 
         public ReadGroupModel(TastanDBContext context)
         {
@@ -25,20 +25,18 @@ namespace EksamensProjekt2023.Pages.Groups
 
             var userRoles = dBContext.UserRoles.ToList();
             var usersInDb = dBContext.UserProfiles.ToList();
-            var roles = dBContext.Roles.ToList();
+            var role = dBContext.Roles.FirstOrDefault(r => r.Name == "Leader");
 
             foreach (var user in usersInDb)
             {
-                foreach (var userRole in userRoles)
+                foreach (var ur in userRoles)
                 {
-                    if (userRole.UserId == user.Id)
+                    if (user.Id == ur.UserId && ur.RoleId == role.Id)
                     {
                         UserProfiles.Add(user);
                     }
                 }
             }
-
-
         }
 
         [BindProperty]
