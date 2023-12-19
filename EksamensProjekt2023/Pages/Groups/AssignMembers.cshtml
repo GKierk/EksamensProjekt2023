@@ -1,0 +1,26 @@
+﻿@page
+@model EksamensProjekt2023.Pages.Groups.AssignMembersModel
+@{
+}
+<div>
+    <form method="post">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Navn</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var member in Model.AssignMembers)
+                {
+                    <tr>
+                        <td><label asp-for="@member.UserProfile.FullName">@member.UserProfile.FullName</label></td>
+                        <td><input type="checkbox" asp-for="@member.IsMember" /></td> 
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <input type="submit" class="btn btn-primary" value="Tildel Brugere" />
+    </form>
+</div>
