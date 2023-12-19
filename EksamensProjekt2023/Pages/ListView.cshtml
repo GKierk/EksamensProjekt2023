@@ -22,17 +22,13 @@
                         <th >Gruppe Navn</th>
                         <th >Leder Navn</th>
                         <th >Medlemmer</th>
-
                     </tr>
                 </thead>
                 <tbody class="align-center">
                     <tr>
-                        @*
-
-                        <td> @item.GroupName</td>
-                        <td> @item.LeaderName</td>
-                        *@
-                         <td><a class="dropdown-item btn btn-primary" asp-page="/members" asp-route-GroupName="@Model.Group.GroupName">Se Medlemmer</a></td>
+                        <td> @Model.Group.GroupName</td>
+                        <td> @Model.Group.GroupLeader</td>
+                        <td><a class="dropdown-item btn btn-primary" asp-page="/members" asp-route-GroupName="@Model.Group.GroupName">Se Medlemmer</a></td>
                     </tr>
                 </tbody>
             </table>
