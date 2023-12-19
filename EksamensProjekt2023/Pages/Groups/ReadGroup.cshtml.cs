@@ -16,6 +16,8 @@ namespace EksamensProjekt2023.Pages.Groups
     public class ReadGroupModel : PageModel
     {
         private TastanDBContext dBContext;
+        private UserManager<UserProfile> userManager;
+        private RoleManager<Role> roleManager;
 
         public ReadGroupModel(TastanDBContext context)
         {
@@ -24,7 +26,7 @@ namespace EksamensProjekt2023.Pages.Groups
             var userRoles = dBContext.UserRoles.ToList();
             var usersInDb = dBContext.UserProfiles.ToList();
             var roles = dBContext.Roles.ToList();
-            
+
             foreach (var user in usersInDb)
             {
                 foreach (var userRole in userRoles)
@@ -35,6 +37,8 @@ namespace EksamensProjekt2023.Pages.Groups
                     }
                 }
             }
+
+
         }
 
         [BindProperty]
@@ -50,6 +54,11 @@ namespace EksamensProjekt2023.Pages.Groups
         {
             Groups = dBContext.Groups.ToList();
             GroupMembers = dBContext.GroupMembers.ToList();
+        }
+
+        public void OnPostSelectLeader()
+        {
+
         }
     }
 }
