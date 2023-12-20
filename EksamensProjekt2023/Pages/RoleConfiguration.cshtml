@@ -19,26 +19,24 @@
             @foreach (var user in Model.UserProfiles)
             {
                 <tr>
-                        <form method="post">
-                    <td>
-                        @user.Email
-                    </td>
-                    <td>
-
-                        <select class="form-select" aria-label="Role Select Dropdown">
-                            <option selected>Choose a role...</option>
-                            <option value="1">Admin</option>
-                            <option value="2">Board member</option>
-                            <option value="3">Leader</option>
-                            <option value="4">Member</option>
-                            <option value="5">User</option>
-                        </select>
-                    </td>
-
-                    <td>
-                        <button class="btn-sm btn-primary "type="submit">Vælg Role</button>
-                    </td>
-                        </form>
+                    <form method="post">
+                        <input type="hidden" name="userId" value="@user.Id"/>
+                        <td>
+                            @user.Email
+                        </td>
+                        <td>
+                            <select class="form-select" name="roleName" aria-label="Role Select Dropdown">
+                                <option selected>Choose a role...</option>
+                            <option name="Admin" value="Admin">Admin</option>
+                                <option name="Board Member" value="Board Member">Board member</option>
+                                <option name="Leader" value="Leader">Leader</option>
+                                <option name="Member" value="Member">Member</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button class="btn-sm btn-primary "type="submit">Vælg Role</button>
+                        </td>
+                    </form>
                 </tr>
             }
         </tbody>
