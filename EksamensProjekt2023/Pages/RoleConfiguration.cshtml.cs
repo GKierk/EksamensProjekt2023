@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EksamensProjekt2023.Pages
 {
+    [Authorize(Roles = ("Admin"))]
     public class RoleConfigurationModel : PageModel
     {
         private TastanDBContext dbContext;
@@ -48,8 +50,18 @@ namespace EksamensProjekt2023.Pages
 
                 if (existingUserRole != null)
                 {
+                    dbContext.UserRoles.Remove(existingUserRole);
+                    dbContext.SaveChanges();
+
                     
-                    existingUserRole.RoleId = Role.Id;
+                    var userRole = new UserRoles
+                    {
+                        UserId = UserProfile.Id,
+                        RoleId = Role.Id
+                    };
+
+                    dbContext.UserRoles.Add(userRole);
+                    dbContext.SaveChanges();
                 }
                 else
                 {
@@ -70,16 +82,3 @@ namespace EksamensProjekt2023.Pages
         }
     }
 }
-
-
-            /* TODO:
-             * Do something along the lines of:
-             * Get the Value of the option selected
-             * Match that value to a corresponding list of roles.
-             * Match the role name to the role name of roles in TastanDBContext
-             * Take the Id of the user that has been changed
-             * Take the Id from the AspNetRoles that matches
-             * in UserRoles make new query that is UserId, RoleId
-             * ???
-             * success?
-             */
