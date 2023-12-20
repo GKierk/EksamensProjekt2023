@@ -13,14 +13,11 @@ public class AssignMembersModel : PageModel
     public AssignMembersModel(TastanDBContext dbContext)
     {
         this.dbContext = dbContext;
-        UserProfiles = dbContext.Users;
+        UserProfiles = dbContext.Users.ToList();
         AssignMembers = new List<AssignMember>();
 
         foreach (var user in UserProfiles)
         {
-            //AssignMember member = new AssignMember(user);
-            //AssignMembers.Add(member);
-
             AssignMembers.Add(new AssignMember { UserProfile = user, IsMember = false });
         }
     }
@@ -29,7 +26,13 @@ public class AssignMembersModel : PageModel
     public Group Group { get; set; }
 
     [BindProperty]
-    public IEnumerable<UserProfile> UserProfiles { get; set; }
+    public GroupMember GroupMember { get; set; }
+
+    [BindProperty]
+    public UserProfile UserProfile { get; set; }
+
+    [BindProperty]
+    public List<UserProfile> UserProfiles { get; set; }
 
     [BindProperty]
     public IdentityRole Role { get; set; }
@@ -45,22 +48,20 @@ public class AssignMembersModel : PageModel
 
     public void OnGet(string groupId)
     {
-        Group = dbContext.Groups.Find(groupId);
-        Role = dbContext.Roles.FirstOrDefault(r => r.Name == "Leader");
     }
 
-    public void OnPost(string groupId)
+    public IActionResult OnPost(string groupId)
     {
         foreach (var member in AssignMembers)
         {
+            GroupMember newGroupMember = new GroupMember { GroupId = groupId, UserProfileId = member.UserProfile.Id};
+            
             if (member.IsMember)
             {
-                dbContext.GroupMembers.Add(new GroupMember(groupId, member.UserProfile));
             }
         }
 
-        dbContext.SaveChanges();
-
-        //return RedirectToPage("/Groups/ReadGroup");
+        return RedirectToPage("/Groups/ReadGroup");
     }
+
 }

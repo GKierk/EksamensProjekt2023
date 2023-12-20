@@ -4,24 +4,28 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EksamensProjekt2023.Models;
 
-[PrimaryKey(nameof(UserProfileId), nameof(GroupId))]
 public class GroupMember
 {
-    public GroupMember() {}
+    public GroupMember() 
+    {
+        Id = Guid.NewGuid().ToString();
+    }
 
-    public GroupMember(string groupId, UserProfile userProfile)
+    public GroupMember(string groupId, string userProfileId) : this()
     {
         GroupId = groupId;
-        UserProfile = userProfile;
+        UserProfileId = userProfileId;
     }
+
+    public string Id { get; set; }
 
     [ForeignKey("GroupId")]
     public string GroupId { get; set; }
 
-    public virtual Group Group { get; set; }
+    public virtual Group? Group { get; set; }
 
     [ForeignKey("UserProfileId")]
     public string UserProfileId { get; set; }
 
-    public virtual UserProfile UserProfile { get; set; }
+    public virtual UserProfile? UserProfile { get; set; }
 }
