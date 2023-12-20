@@ -8,7 +8,7 @@
 /// Date Created: 2023-12-14
 /// Date Edited: 2023-12-18
 /// Author: Lasse B. Hindsberg
-*@
+
 
 
 <div class="listViewContainer">
@@ -19,12 +19,12 @@
     string previousPage = Request.Headers["Referer"];
     string returnLink = previousPage?.ToString() ?? "/AdminPanel";
 }
-        @*Turn this into group name, or like. group id or something :)*@
+        Turn this into group name, or like. group id or something :)
         <h1 class="h1"> @Model.group.GroupName &middot; Medlemmer: </h1>
         <a class="text-body-secondary link-info" href="@returnLink">Gå Tilbage</a>
             <table class="table table-striped">
                 <thead >
-                    @*Placeholder data currently*@
+                    Placeholder data currently
                     <tr>
                         <th >Medlem</th>
                         <th >antal Salg</th>
@@ -47,8 +47,10 @@
                             <td>@member.member</td>
                         </tr>
                     }
-                        *@
+                        
                 </tbody>
             </table>
     </div>
 </div>
+
+*@
