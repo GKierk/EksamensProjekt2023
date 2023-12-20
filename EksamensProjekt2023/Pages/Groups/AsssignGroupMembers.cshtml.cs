@@ -9,24 +9,28 @@ namespace EksamensProjekt2023.Pages.Groups
     {
         private TastanDBContext dbContext;
         private UserManager<UserProfile> userManager;
-        public List<AssignMember> assignMembers = new List<AssignMember>();
-
+        public List<AssignMember> assignMembers;
 
         public AsssignGroupMembersModel(TastanDBContext dbContext, UserManager<UserProfile> userManager)
         {
             this.dbContext = dbContext;
+            this.userManager = userManager;
+            assignMembers = new List<AssignMember>();
 
-            assignMembers = userManager.Users.Select(user => new AssignMember(user)).ToList();
+            foreach (var member in dbContext.Users)
+            {
+                assignMembers.Add(new AssignMember(member));
+            }
         }
 
 
         public void OnGet(string groupId)
         {
+
         }
 
         public IActionResult OnPost(string groupId)
         {
-
             foreach (var member in assignMembers)
             {
                 if (member.IsMember)
