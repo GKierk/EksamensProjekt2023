@@ -1,4 +1,6 @@
-﻿namespace EksamensProjekt2023.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace EksamensProjekt2023.Models;
 
 public class AssignMember
 {
