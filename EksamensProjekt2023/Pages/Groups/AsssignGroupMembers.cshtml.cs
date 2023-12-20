@@ -1,4 +1,5 @@
 using EksamensProjekt2023.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -7,20 +8,17 @@ namespace EksamensProjekt2023.Pages.Groups
     public class AsssignGroupMembersModel : PageModel
     {
         private TastanDBContext dbContext;
+        private UserManager<UserProfile> userManager;
+        public List<AssignMember> assignMembers = new List<AssignMember>();
 
-        public AsssignGroupMembersModel(TastanDBContext dbContext)
+
+        public AsssignGroupMembersModel(TastanDBContext dbContext, UserManager<UserProfile> userManager)
         {
             this.dbContext = dbContext;
-            AssignMembers = new List<AssignMember>();
 
-            foreach (var user in dbContext.Users)
-            {
-                AssignMembers.Add(new AssignMember(user));
-            }
+            assignMembers = userManager.Users.Select(user => new AssignMember(user)).ToList();
         }
 
-        [BindProperty]
-        public List<AssignMember> AssignMembers { get; set; }
 
         public void OnGet(string groupId)
         {
@@ -28,14 +26,11 @@ namespace EksamensProjekt2023.Pages.Groups
 
         public IActionResult OnPost(string groupId)
         {
-            for (int i = 0; i < AssignMembers.Count; i++)
+
+            foreach (var member in assignMembers)
             {
-                if (AssignMembers[i].IsMember)
-                {
-                    string userId = AssignMembers[i].UserProfile.Id;
-                    GroupMember groupMember = new GroupMember(groupId, userId);
-                    dbContext.GroupMembers.Add(groupMember);
-                }
+                var groupMember = new GroupMember(groupId, member.UserProfile.Id);
+                dbContext.GroupMembers.Add(groupMember);
             }
 
             dbContext.SaveChanges();
