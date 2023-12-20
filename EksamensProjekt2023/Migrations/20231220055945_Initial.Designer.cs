@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EksamensProjekt2023.Migrations
 {
     [DbContext(typeof(TastanDBContext))]
-    [Migration("20231219212209_GroupMemberUpdate")]
-    partial class GroupMemberUpdate
+    [Migration("20231220055945_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,15 +46,22 @@ namespace EksamensProjekt2023.Migrations
 
             modelBuilder.Entity("EksamensProjekt2023.Models.GroupMember", b =>
                 {
-                    b.Property<string>("UserProfileId")
+                    b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("GroupId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("UserProfileId", "GroupId");
+                    b.Property<string>("UserProfileId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("GroupId");
+
+                    b.HasIndex("UserProfileId");
 
                     b.ToTable("GroupMembers");
                 });

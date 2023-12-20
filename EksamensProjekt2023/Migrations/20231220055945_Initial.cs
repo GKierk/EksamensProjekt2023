@@ -53,18 +53,6 @@ namespace EksamensProjekt2023.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "GroupMembers",
-                columns: table => new
-                {
-                    FullName = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    GroupName = table.Column<string>(type: "nvarchar(450)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_GroupMembers", x => new { x.FullName, x.GroupName });
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -209,6 +197,31 @@ namespace EksamensProjekt2023.Migrations
                         principalColumn: "Id");
                 });
 
+            migrationBuilder.CreateTable(
+                name: "GroupMembers",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    GroupId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    UserProfileId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GroupMembers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_GroupMembers_AspNetUsers_UserProfileId",
+                        column: x => x.UserProfileId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_GroupMembers_Groups_GroupId",
+                        column: x => x.GroupId,
+                        principalTable: "Groups",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -249,6 +262,16 @@ namespace EksamensProjekt2023.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_GroupMembers_GroupId",
+                table: "GroupMembers",
+                column: "GroupId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_GroupMembers_UserProfileId",
+                table: "GroupMembers",
+                column: "UserProfileId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Groups_GroupLeaderId",
                 table: "Groups",
                 column: "GroupLeaderId");
@@ -281,13 +304,13 @@ namespace EksamensProjekt2023.Migrations
                 name: "GroupMembers");
 
             migrationBuilder.DropTable(
-                name: "Groups");
-
-            migrationBuilder.DropTable(
                 name: "Records");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Groups");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
