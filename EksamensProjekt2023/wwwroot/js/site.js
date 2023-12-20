@@ -4,11 +4,11 @@
 // Write your JavaScript code.
 // basic slidey nav code probably not being used but now made :D
 // Author: Lasse Breum Hindsberg 12-07-2023
-document.addEventListener('DOMContentLoaded', function() {
-    let toggleBtn = document.querySelector(".toggleBtn");
-    const adminPanelNav = document.querySelector(".adminPanelSide");
+//document.addEventListener('DOMContentLoaded', function() {
+//    let toggleBtn = document.querySelector(".toggleBtn");
+//    const adminPanelNav = document.querySelector(".adminPanelSide");
     
-    toggleBtn.addEventListener('click', function() {
-        adminPanelNav.classList.toggle('open');
-    })
-});
+//    toggleBtn.addEventListener('click', function() {
+//        adminPanelNav.classList.toggle('open');
+//    })
+//});
