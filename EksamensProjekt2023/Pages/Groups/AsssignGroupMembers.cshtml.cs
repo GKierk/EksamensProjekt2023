@@ -8,18 +8,21 @@ namespace EksamensProjekt2023.Pages.Groups
     public class AsssignGroupMembersModel : PageModel
     {
         private TastanDBContext dbContext;
-        private UserManager<UserProfile> userManager;
-        public List<AssignMember> assignMembers;
+        public readonly List<AssignMember> assignMembers;
 
-        public AsssignGroupMembersModel(TastanDBContext dbContext, UserManager<UserProfile> userManager)
+        public AsssignGroupMembersModel(TastanDBContext dbContext)
         {
             this.dbContext = dbContext;
-            this.userManager = userManager;
-            assignMembers = new List<AssignMember>();
 
-            foreach (var member in dbContext.Users)
+
+            if (assignMembers == null)
             {
-                assignMembers.Add(new AssignMember(member));
+                assignMembers = new List<AssignMember>();
+
+                foreach (var member in dbContext.Users)
+                {
+                    assignMembers.Add(new AssignMember(member));
+                }
             }
         }
 
