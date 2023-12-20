@@ -41,19 +41,22 @@
                                 <thead>
                                     <tr>
                                         <th>Medlemmer</th>
-                                        <th><a class="btn btn-primary" asp-page="/Groups/AsssignGroupMembers" asp-route-groupId="@group.Id">Tildel Gruppe Medlemmer</a></th>
+                                        <th> </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach (var member in Model.GroupMembers)
-                                {
-                                    if(member.Group.GroupName == group.GroupName)
-                                    {
-                                        <tr>
-                                            <td>@member.UserProfile.FullName</td>
-                                        </tr>
-                                    }
-                                }
+                                    <tr>
+                                        <td>
+                                            @foreach (var member in Model.GroupMembers)
+                                            {
+                                                if(member.Group.GroupName == group.GroupName)
+                                                {
+                                                    @member.UserProfile.FullName
+                                                }
+                                            }
+                                        </td>
+                                        <td><a class="btn btn-primary" asp-page="/Groups/AsssignGroupMembers" asp-route-groupId="@group.Id">Tildel Gruppe Medlemmer</a></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </td>
