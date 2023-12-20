@@ -31,7 +31,8 @@
                                         }
                                     </ul>
                                 </div>
-                            } else
+                            } 
+                            else
                             {
                                @group.GroupLeader.FullName
                             }
@@ -41,22 +42,22 @@
                                 <thead>
                                     <tr>
                                         <th>Medlemmer</th>
-                                        <th> </th>
+                                        <th><a class="btn btn-primary" asp-page="/Groups/AsssignGroupMembers" asp-route-groupId="@group.Id">Tildel Gruppe Medlemmer</a></th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @foreach (var member in Model.GroupMembers)
+                                {
                                     <tr>
                                         <td>
-                                            @foreach (var member in Model.GroupMembers)
+                                            @if(member.Group.GroupName == group.GroupName)
                                             {
-                                                if(member.Group.GroupName == group.GroupName)
-                                                {
-                                                    @member.UserProfile.FullName
-                                                }
+                                                @member.UserProfile.FullName
                                             }
                                         </td>
-                                        <td><a class="btn btn-primary" asp-page="/Groups/AsssignGroupMembers" asp-route-groupId="@group.Id">Tildel Gruppe Medlemmer</a></td>
+                                        <td></td>
                                     </tr>
+                                }
                                 </tbody>
                             </table>
                         </td>
