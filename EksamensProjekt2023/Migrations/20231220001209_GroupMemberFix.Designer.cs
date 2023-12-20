@@ -4,6 +4,7 @@ using EksamensProjekt2023.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EksamensProjekt2023.Migrations
 {
     [DbContext(typeof(TastanDBContext))]
-    partial class TastanDBContextModelSnapshot : ModelSnapshot
+    [Migration("20231220001209_GroupMemberFix")]
+    partial class GroupMemberFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,22 +46,15 @@ namespace EksamensProjekt2023.Migrations
 
             modelBuilder.Entity("EksamensProjekt2023.Models.GroupMember", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("UserProfileId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("GroupId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("UserProfileId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
+                    b.HasKey("UserProfileId", "GroupId");
 
                     b.HasIndex("GroupId");
-
-                    b.HasIndex("UserProfileId");
 
                     b.ToTable("GroupMembers");
                 });
