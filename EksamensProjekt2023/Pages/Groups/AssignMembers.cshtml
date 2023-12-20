@@ -12,16 +12,18 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach (var member in Model.AssignMembers)
-            {
-                <tr>
-                    <td><label class="form-label">@member.UserProfile.FullName</label></td>
-                    <td><input type="checkbox" asp-for="@member.IsMember" /></td>
-                </tr>
-            }
+                @for (int i = 0; i < Model.AssignMembers.Count; i++)
+                {
+                    var member = Model.AssignMembers[i];
+                    <tr>
+                        <td>@member.UserProfile.FullName</td>
+                        <td><input type="checkbox" asp-for="AssignMembers[i].IsMember" /></td>
+                    </tr>
+                }
             </tbody>
         </table>
         <button type="submit" class="btn btn-primary" >Tildel Brugere</button>
     </form>
 </div>
 <p>(@Model.AssignMembers.Count)</p>
+<p></p>
