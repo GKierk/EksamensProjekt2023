@@ -29,11 +29,8 @@ namespace EksamensProjekt2023.Pages.Groups
 
             foreach (var member in assignMembers)
             {
-                if(member.IsMember)
-                {
-                    var groupMember = new GroupMember(groupId, member.UserProfile.Id);
-                    dbContext.GroupMembers.Add(groupMember);
-                }
+                var groupMember = new GroupMember(groupId, member.UserProfile.Id);
+                dbContext.GroupMembers.Add(groupMember);
             }
 
             dbContext.SaveChanges();
